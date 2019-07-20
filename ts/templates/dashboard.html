@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body >
+
+<div class="container-contact100 container-fluid" style="text-align:center;">
+  <h2>Top 10 Foosball Team</h2>
+     <table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col" style="text-align:center;" >Rank</th>
+      <th scope="col" style="text-align:center;" >First Player</th>
+      <th scope="col" style="text-align:center;">Second player</th>
+      <th scope="col" style="text-align:center;">Score</th>
+    </tr>
+  </thead>
+    <tbody>
+    	{% for team in teams %}
+      <tr>
+        <td>{{team.rank}}</td>
+        <td>{{team.first_player_name}}</td>
+        <td>{{team.second_player_name}}</td>
+        <td>{{team.score}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+
+</div>
