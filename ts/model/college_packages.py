@@ -17,6 +17,7 @@ class Package(Base):
     tour_domain = db.Column(db.String, nullable=True)
     mg_min_pax = db.Column(db.Integer, nullable=True)
     max_pax = db.Column(db.Integer, nullable=True)
+    price = db.Column(db.Integer, nullable=True)
     days = db.relationship('Day', backref='package')
     amenities = db.relationship('Amenity', backref='package')
 

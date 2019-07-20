@@ -17,10 +17,18 @@ def college_api():
         result = CollegeSchema(many=True).dump(data)
         return jsonify({'result': {'college': result.data}, 'message': "Success", 'error': False})
     else:
-        post = College(**request.json)
-        post.save()
-        result = CollegeSchema().dump(post)
-        return jsonify({'result': {'college': result.data}, 'message': "Success", 'error': False})
+        college = request.json
+        courses = college.get("courses", None)
+        college.pop("courses", None)
+        college_post = College(**college)
+        college_post.save()
+        for course in courses:
+            course['college_id'] = college_post.id
+            course_post = Course(**course)
+            college_post.courses.append(course_post)
+            course_post.save()
+        college_result = CollegeSchema().dump(college_post)
+        return jsonify({'result': {'college': college_result.data}, 'message': "Success", 'error': False})
 
 
 @app.route('/api/v1/college/<int:id>', methods=['PUT', 'DELETE'])
@@ -40,7 +48,6 @@ def college_id(id):
         return jsonify({'result': {}, 'message': "Success", 'error': False})
 
 
-
 @app.route('/api/v1/package', methods=['GET', 'POST'])
 def package_api():
     if request.method == 'GET':
@@ -53,9 +60,24 @@ def package_api():
         result = PackageSchema(many=True).dump(data)
         return jsonify({'result': {'package': result.data}, 'message': "Success", 'error': False})
     else:
-        post = Package(**request.json)
-        post.save()
-        result = PackageSchema().dump(post)
+        package = request.json
+        days = Package.get("days", None)
+        amenities = Package.get("amenities", None)
+        package.pop("days", None)
+        package.pop("amenities", None)
+        package_post = College(**package)
+        package_post.save()
+        for day in days:
+            day['package_id'] = package_post.id
+            day_post = Day(**day)
+            package_post.days.append(day_post)
+            day_post.save()
+        for amenity in amenities:
+            amenity['package_id'] = package_post.id
+            amenity_post = Amenity(**amenity)
+            package_post.amenities.append(amenity_post)
+            amenity_post.save()
+        result = PackageSchema().dump(package_post)
         return jsonify({'result': {'package': result.data}, 'message': "Success", 'error': False})
 
 
