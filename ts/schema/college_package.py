@@ -18,7 +18,7 @@ class DaySchema(ma.ModelSchema):
 
 class PackageSchema(ma.ModelSchema):
     days = ma.Nested(DaySchema, many=True)
-    Amenity = ma.Nested(AmenitySchema, many=True)
+    amenities = ma.Nested(AmenitySchema, many=True)
 
     class Meta:
         model = Package
