@@ -6,7 +6,7 @@ controller('adminController',["$scope", "$http", function($scope){
     $scope.amenities={};
 
 
-var sendPostCall = function(url, data) {
+var sendPostCall = function(url, data) {fg
     console.log(data);
     
     $http({

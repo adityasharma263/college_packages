@@ -61,12 +61,9 @@ def package_api():
         return jsonify({'result': {'package': result.data}, 'message': "Success", 'error': False})
     else:
         package = request.json
-<<<<<<< HEAD
-        days = Package.get("days", None)
-=======
+        
         days = package.get("days", None)
->>>>>>> 06f21b1fd27953ca3f98306e962fa94e96360761
-        amenities = Package.get("amenities", None)
+        amenities = package.get("amenities", None)
         package.pop("days", None)
         package.pop("amenities", None)
         package_post = College(**package)
