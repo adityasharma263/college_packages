@@ -69,7 +69,7 @@ def package_api():
         print(amenities,"ccccccccccccccccccccccccccccc")
         package.pop("days", None)
         package.pop("amenities", None)
-        package_post = College(**package)
+        package_post = Package(**package)
         package_post.save()
         for day in days:
             day['package_id'] = package_post.id
