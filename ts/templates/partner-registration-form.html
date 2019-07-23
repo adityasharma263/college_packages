@@ -274,16 +274,27 @@
                                             <input type="text" class="input-text full-width" name="number" ng-model="college.phone" value="" placeholder="">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
+                                    <!--<div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
-                                            <label>Branches In Institution</label>
+                                            <label>Courses</label>
                                             <div class="selector">
-                                                <select class="full-width" name="branches" ng-model="college.branches">
+                                                <select class="full-width" name="branches" ng-model="college.courses">
                                                     <option>B. Com</option>
                                                     <option>B. Arch</option>
                                                 </select><span class="custom-select full-width">B. Tech</span>
                                             </div>
+                                        </div>-->
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 col-md-5">
+                                            <label for="Enter Amenities">courses</label>
+                                            <input type="text" class="input-text full-width" name="" ng-model="college_courses.course"value="" placeholder="">
                                         </div>
+                                        <div class="col-sm-6 col-md-5">
+                                            <label>Add More Courses</label>
+                                            <button class="button btn-medium sky-blue1 uppercase" ng-click="addCourse()">Add More +</button>
+                                        </div>
+                                    </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>College Domain</label>
                                             <div class="selector">
@@ -304,7 +315,7 @@
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>No. of Employees In College</label>
-                                            <input type="text" class="input-text full-width" name="no_of_employee" ng-model="college.no_of_employee" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="no_of_employee" ng-model="college.no_of_employees" value="" placeholder="">
                                         </div>
                                     </div>
 									<div class="form-group row">

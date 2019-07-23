@@ -5,9 +5,13 @@ angular.module('app', [])
     $scope.package_days={};
     $scope.amenities=[];
     $scope.package_amenity={};
-    $scope.collage={};
+    $scope.college={};
     $scope.student={};
+    $scope.courses=[];
+    $scope.college_courses={};
 
+    
+    
 
  var sendPostCall = function(url, data) {
     console.log("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDJJJJJJJJJJJJJ3");
@@ -100,6 +104,14 @@ angular.module('app', [])
     $scope.package.amenities=$scope.amenities;
     console.log("package",$scope.package);
     //createToast("'amenity Added!!'","green");
+
+  }
+  $scope.addCourse=function(){
+    $scope.courses.push($scope.college_courses);
+    $scope.college_courses={};
+    $scope.college.courses=$scope.courses;
+    console.log("college",$scope.college);
+    //createToast("'course Added!!'","green");
 
   }
 }]);
