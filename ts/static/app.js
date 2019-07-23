@@ -21,12 +21,12 @@ angular.module('app', [])
     }).then(function (res) {
       console.log(res);
       
-            createToast("'pakage successfully created!!!'","green");
+            //createToast("'pakage successfully created!!!'","green");
 
       },
       // failed callback
       function (req) {
-        createToast("'Something went wrong!!!'","red");
+        //createToast("'Something went wrong!!!'","red");
       })
     }   
 
@@ -36,7 +36,7 @@ angular.module('app', [])
         console.log("aaaaaaaaaat");
         console.log("package details",$scope.package);
         sendPostCall('/api/v1/package',$scope.package);
-        createToast("'Pakage Added!!'","green");
+        //createToast("'Pakage Added!!'","green");
       }
 
 
@@ -45,7 +45,7 @@ angular.module('app', [])
           console.log(" addcollege function working");
           console.log("college details",$scope.college);
           sendPostCall('/api/v1/college', $scope.college);
-          createToast("'College Added!!'","green");
+          //createToast("'College Added!!'","green");
         }
 
 
@@ -55,7 +55,7 @@ angular.module('app', [])
             console.log(" addstudent function working");
             console.log("student details",$scope.student);
             sendPostCall('/api/v1/student', $scope.student);
-            createToast("'Data recieved ..proceed to payment !!'","green");
+            //createToast("'Data recieved ..proceed to payment !!'","green");
           }
 
 
@@ -88,7 +88,7 @@ angular.module('app', [])
     $scope.package_days={};
     $scope.package.days=$scope.days;
     console.log("days",$scope.days);
-    createToast("'Day Added!!'","green");
+    //createToast("'Day Added!!'","green");
 
   }
 
@@ -99,7 +99,7 @@ angular.module('app', [])
     $scope.package_amenity={};
     $scope.package.amenities=$scope.amenities;
     console.log("package",$scope.package);
-    createToast("'amenity Added!!'","green");
+    //createToast("'amenity Added!!'","green");
 
   }
 }]);
