@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html ng-app="app" class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Page Title -->
     <title>College Registration | The Travel Square</title>
     
@@ -27,12 +27,13 @@
   
     <meta name="keywords" content="The Travel Square is a Unique B2B Platform For Travel Agents to Get Best Quotes For Their Travel Booking Leads . Our Network is a Profesional B2B Connection of More Than 5000+ Travel Agents Around the Globe at More Than 250+ Destinations in the World . The Travel Square is Simple to Use , Efficient and Cost Savvy , Which Can Make More Margins in Travel Sales and Make Travel Agents Earn 150% More Profits.">
     <meta name="format-detection" content="7428558566">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
   
-    <link rel="stylesheet" href="./Partners Screening Form_files/bootstrap.min.css">
-    <link rel="stylesheet" href="./Partners Screening Form_files/font-awesome.min.css">
-    <link href="./Partners Screening Form_files/css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./Partners Screening Form_files/animate.min.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/bootstrap.min.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/font-awesome.min.css">
+    <link href="/Partners Screening Form_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/animate.min.css">
     
 
 	
@@ -45,16 +46,16 @@
             }
         }
         document.write('<link id="main-style" rel="stylesheet" href="css/' + mainStyle + '">');
-    </script><link id="main-style" rel="stylesheet" href="file:///D:/Office/Company%20Data/Travel%20Beans/Website/Login/css/style-dark-orange.css"><link id="main-style" rel="stylesheet" href="./Partners Screening Form_files/style-light-yellow.css">
+    </script><link id="main-style" rel="stylesheet" href="file:///D:/Office/Company%20Data/Travel%20Beans/Website/Login/css/style-dark-orange.css"><link id="main-style" rel="stylesheet" href="/Partners Screening Form_files/style-light-yellow.css">
     
     <!-- Updated Styles -->
-    <link rel="stylesheet" href="./Partners Screening Form_files/updates.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/updates.css">
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./Partners Screening Form_files/custom.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/custom.css">
     
     <!-- Responsive Styles -->
-    <link rel="stylesheet" href="./Partners Screening Form_files/responsive.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/responsive.css">
     
    
 </head>
@@ -238,7 +239,8 @@
                 </ul>
             </div>
         </div>
-
+   
+     <div ng-controller="adminController">     
         <section id="content">
             <div class="container">
 			
@@ -250,33 +252,33 @@
 					
 					
                         <div class="travelo-box booking-section">
-                            <form class="booking-form" action="/" method="post" >
+                            <form class="booking-form" >
                                 <div class="person-information"><center>
                                     <h2>Institution Registration Form</h2></center><hr>
 									
                                     <div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
                                             <label>Institution Name</label>
-                                            <input type="text" class="input-text full-width" name="institution_name" ng-model="collage.institution_name" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="institution_name" ng-model="college.institution_name" value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>City / Locations</label>
-                                            <input type="text" class="input-text full-width" name="city_location"  ng-model="collage.city_location"  value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="city_location"  ng-model="college.city"  value="" placeholder="">
                                         </div>
 										<div class="col-sm-6 col-md-5">
                                             <label>Official Mail Address</label>
-                                            <input type="text" class="input-text full-width" name="mail_address" ng-model="collage.mail_address" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="mail_address" ng-model="college.email" value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>Contact Number</label>
-                                            <input type="text" class="input-text full-width" name="number" ng-model="collage.number" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="number" ng-model="college.phone" value="" placeholder="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
                                             <label>Branches In Institution</label>
                                             <div class="selector">
-                                                <select class="full-width" name="branches" ng-model="collage.branches">
+                                                <select class="full-width" name="branches" ng-model="college.branches">
                                                     <option>B. Com</option>
                                                     <option>B. Arch</option>
                                                 </select><span class="custom-select full-width">B. Tech</span>
@@ -285,7 +287,7 @@
                                         <div class="col-sm-6 col-md-5">
                                             <label>College Domain</label>
                                             <div class="selector">
-                                                <select class="full-width" name="college_domain" ng-model="collage.college_domain" >
+                                                <select class="full-width" name="college_domain" ng-model="college.college_domain" >
 													<option>Mass Com</option>
                                                     <option>Fashion</option>
                                                     <option>Marketing</option>
@@ -298,21 +300,21 @@
 									<div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
                                             <label>No. Of Students In College</label>
-                                            <input type="text" class="input-text full-width" name="no_of_students" ng-model="collage.no_of_students" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="no_of_students" ng-model="college.no_of_student" value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>No. of Employees In College</label>
-                                            <input type="text" class="input-text full-width" name="no_of_employee" ng-model="collage.no_of_employee" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="no_of_employee" ng-model="college.no_of_employee" value="" placeholder="">
                                         </div>
                                     </div>
 									<div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
                                             <label>College Contact Person (Co-ordiantor)</label>
-                                            <input type="text" class="input-text full-width" name="co_ordinator" ng-model="collage.co_ordinator" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="co_ordinator" ng-model="college.coordiantor" value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>Contact Number</label>
-                                            <input type="text" class="input-text full-width" name="contact_number" ng-model="collage.contact_number" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="contact_number" ng-model="college.coordiantor_phone" value="" placeholder="">
                                         </div>
                                     </div>
 									
@@ -320,16 +322,16 @@
                                      <div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
                                             <label>Create College Username</label>
-                                            <input type="text" class="input-text full-width" name="username" ng-model="collage.username" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="username" ng-model="college.username" value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>Create Password</label>
-                                            <input type="text" class="input-text full-width" name="password" ng-model="collage.password" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="password" ng-model="college.password" value="" placeholder="">
                                         </div>
                                     </div><br>
                                 <div class="form-group row">
                                     <div class="col-sm-6 col-md-5">
-                                        <button type="submit" class="full-width btn-large" ng-click=addcollege() >Register College </button>
+                                        <button type="submit" class="full-width btn-large" ng-click="addCollege()" >Register College </button>
                                     </div>
    
                                 </div>
@@ -343,6 +345,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>      
         </section>
         
          <footer id="footer" class="style5">
@@ -418,25 +422,25 @@
 
 
     <!-- Javascript -->
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery-1.11.1.min.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery.noconflict.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/modernizr.2.7.1.min.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery-migrate-1.2.1.min.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery.placeholder.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery-ui.1.10.4.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery-1.11.1.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery.noconflict.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/modernizr.2.7.1.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery-migrate-1.2.1.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery.placeholder.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery-ui.1.10.4.min.js.download"></script>
     
     <!-- Twitter Bootstrap -->
-    <script type="text/javascript" src="./Partners Screening Form_files/bootstrap.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/bootstrap.js.download"></script>
     
     <!-- parallax -->
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery.stellar.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery.stellar.min.js.download"></script>
     
     <!-- waypoint -->
-    <script type="text/javascript" src="./Partners Screening Form_files/waypoints.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/waypoints.min.js.download"></script>
 
     <!-- load page Javascript -->
-    <script type="text/javascript" src="./Partners Screening Form_files/theme-scripts.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/scripts.js.download"></script>
-    
+    <script type="text/javascript" src="/Partners Screening Form_files/theme-scripts.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/scripts.js.download"></script>
+    <script type="text/javascript" src="/app.js"></script>
 
 </body></html>

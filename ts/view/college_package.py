@@ -18,6 +18,7 @@ def college_api():
         return jsonify({'result': {'college': result.data}, 'message': "Success", 'error': False})
     else:
         college = request.json
+        print(college,"checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
         courses = college.get("courses", None)
         college.pop("courses", None)
         college_post = College(**college)
@@ -61,9 +62,11 @@ def package_api():
         return jsonify({'result': {'package': result.data}, 'message': "Success", 'error': False})
     else:
         package = request.json
-        
+        print(package, "daaaaaaaaaaaaaataaaaaaaaaaaaaaaa")
         days = package.get("days", None)
+        print(days,"bbbbbbbbbbbbbbbbbbbbbbbbbb")
         amenities = package.get("amenities", None)
+        print(amenities,"ccccccccccccccccccccccccccccc")
         package.pop("days", None)
         package.pop("amenities", None)
         package_post = College(**package)
@@ -111,7 +114,7 @@ def student_api():
         result = StudentSchema(many=True).dump(data)
         return jsonify({'result': {'student': result.data}, 'message': "Success", 'error': False})
     else:
-        post = Student(**request.json)
+        post = Student(**request.json) 
         post.save()
         result = StudentSchema().dump(post)
         return jsonify({'result': {'student': result.data}, 'message': "Success", 'error': False})

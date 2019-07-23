@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html ng-app="app" class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Page Title -->
     <title>Student Registration | Bagpackers | The Travel Square</title>
     
@@ -22,6 +22,9 @@
     <meta property="og:title" content="The Travel Square">
     <meta property="og:description" content="The Travel Square is a Unique B2B Platform For Travel Agents to Get Best Quotes For Their Travel Booking Leads . Our Network is a Profesional B2B Connection of More Than 5000+ Travel Agents Around the Globe at More Than 250+ Destinations in the World . The Travel Square is Simple to Use , Efficient and Cost Savvy , Which Can Make More Margins in Travel Sales and Make Travel Agents Earn 150% More Profits.">
     <meta property="og:image" content="">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
   
     <meta name="twitter:card" content="The Travel Square is a Unique B2B Platform For Travel Agents to Get Best Quotes For Their Travel Booking Leads . Our Network is a Profesional B2B Connection of More Than 5000+ Travel Agents Around the Globe at More Than 250+ Destinations in the World . The Travel Square is Simple to Use , Efficient and Cost Savvy , Which Can Make More Margins in Travel Sales and Make Travel Agents Earn 150% More Profits.">
   
@@ -29,10 +32,10 @@
     <meta name="format-detection" content="7428558566">
     
   
-    <link rel="stylesheet" href="./Partners Screening Form_files/bootstrap.min.css">
-    <link rel="stylesheet" href="./Partners Screening Form_files/font-awesome.min.css">
-    <link href="./Partners Screening Form_files/css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./Partners Screening Form_files/animate.min.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/bootstrap.min.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/font-awesome.min.css">
+    <link href="/Partners Screening Form_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/animate.min.css">
     
 
 	
@@ -45,16 +48,16 @@
             }
         }
         document.write('<link id="main-style" rel="stylesheet" href="css/' + mainStyle + '">');
-    </script><link id="main-style" rel="stylesheet" href="file:///D:/Office/Company%20Data/Travel%20Beans/Website/Login/css/style-dark-orange.css"><link id="main-style" rel="stylesheet" href="./Partners Screening Form_files/style-light-yellow.css">
+    </script><link id="main-style" rel="stylesheet" href="file:///D:/Office/Company%20Data/Travel%20Beans/Website/Login/css/style-dark-orange.css"><link id="main-style" rel="stylesheet" href="/Partners Screening Form_files/style-light-yellow.css">
     
     <!-- Updated Styles -->
-    <link rel="stylesheet" href="./Partners Screening Form_files/updates.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/updates.css">
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="./Partners Screening Form_files/custom.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/custom.css">
     
     <!-- Responsive Styles -->
-    <link rel="stylesheet" href="./Partners Screening Form_files/responsive.css">
+    <link rel="stylesheet" href="/Partners Screening Form_files/responsive.css">
     
    
 </head>
@@ -238,7 +241,7 @@
                 </ul>
             </div>
         </div>
-
+    <div ng-controller="adminController"> 
         <section id="content">
             <div class="container">
 			
@@ -257,11 +260,11 @@
                                     <div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
                                             <label>Student Name</label>
-                                            <input type="text" class="input-text full-width" name="student_name" ng-model="student.student_name" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="student_name" ng-model="student.name" value="" placeholder="">
                                         </div>
 										<div class="col-sm-6 col-md-5">
                                             <label>Mobile Number</label>
-                                            <input type="text" class="input-text full-width" name="number" ng-model="student.number"  value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="number" ng-model="student.phone"  value="" placeholder="">
                                         </div>
 										<div class="col-sm-6 col-md-5">
                                             <label>E-Mail Address</label>
@@ -270,7 +273,7 @@
                                         <div class="col-sm-6 col-md-5">
                                             <label>Select Institution</label>
                                             <div class="selector">
-                                                <select class="full-width" name="select_institution" ng-model="student.institution">
+                                                <select class="full-width" name="select_institution" ng-model="student.college_id">
                                                     <option>Skyline</option>
                                                     <option>United</option>
                                                     <option>Galgotias</option>
@@ -292,7 +295,7 @@
                                        <div class="col-sm-6 col-md-5">
                                             <label>Select Trip</label>
                                             <div class="selector">
-                                                <select class="full-width" name="trip" ng-model="student.trip">
+                                                <select class="full-width" name="trip" ng-model="student.package_id">
                                                     <option>Adventure Park</option>
                                                     <option>Shimla Tour</option>
                                                     <option>Kasol Trip</option>
@@ -305,7 +308,7 @@
                                 
                                 <div class="form-group row">
                                     <div class="col-sm-6 col-md-5">
-                                        <button type="submit" class="full-width btn-large" ng-click=addstudent()>Proceed to Payment</button><!--add payment link -->
+                                        <button type="submit" class="full-width btn-large" ng-click="addStudent()">Proceed to Payment</button><!--add payment link -->
                                     </div>
    
                                 </div>
@@ -319,6 +322,7 @@
                     </div>
                 </div>
             </div>
+        </div>    
         </section>
         
          <footer id="footer" class="style5">
@@ -394,25 +398,29 @@
 
 
     <!-- Javascript -->
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery-1.11.1.min.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery.noconflict.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/modernizr.2.7.1.min.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery-migrate-1.2.1.min.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery.placeholder.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery-ui.1.10.4.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery-1.11.1.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery.noconflict.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/modernizr.2.7.1.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery-migrate-1.2.1.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery.placeholder.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery-ui.1.10.4.min.js.download"></script>
     
     <!-- Twitter Bootstrap -->
-    <script type="text/javascript" src="./Partners Screening Form_files/bootstrap.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/bootstrap.js.download"></script>
     
     <!-- parallax -->
-    <script type="text/javascript" src="./Partners Screening Form_files/jquery.stellar.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/jquery.stellar.min.js.download"></script>
     
     <!-- waypoint -->
-    <script type="text/javascript" src="./Partners Screening Form_files/waypoints.min.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/waypoints.min.js.download"></script>
 
     <!-- load page Javascript -->
-    <script type="text/javascript" src="./Partners Screening Form_files/theme-scripts.js.download"></script>
-    <script type="text/javascript" src="./Partners Screening Form_files/scripts.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/theme-scripts.js.download"></script>
+    <script type="text/javascript" src="/Partners Screening Form_files/scripts.js.download"></script>
+    
+    
+    <script type="text/javascript" src="/app.js"></script>
+
     
 
 </body></html>

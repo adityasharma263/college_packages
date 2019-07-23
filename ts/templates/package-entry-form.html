@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html ng-app="app" class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Page Title -->
     <title>Package Entry | The Travel Square</title>
     
@@ -27,6 +27,7 @@
   
     <meta name="keywords" content="The Travel Square is a Unique B2B Platform For Travel Agents to Get Best Quotes For Their Travel Booking Leads . Our Network is a Profesional B2B Connection of More Than 5000+ Travel Agents Around the Globe at More Than 250+ Destinations in the World . The Travel Square is Simple to Use , Efficient and Cost Savvy , Which Can Make More Margins in Travel Sales and Make Travel Agents Earn 150% More Profits.">
     <meta name="format-detection" content="7428558566">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     
   
     <link rel="stylesheet" href="/Partners Screening Form_files/bootstrap.min.css">
@@ -58,7 +59,7 @@
     
    
 </head>
-<body>
+<body ng-controller="adminController"> 
     <div id="page-wrapper">
         <header id="header" class="navbar-static-top">
             <div class="topnav hidden-xs">
@@ -85,7 +86,7 @@
                 <div class="container">
                     <h1 class="logo navbar-brand">
                         <a href="http://www.thetravelsqaure.com" title="The Travel Sqaure">
-                            <img src="images/.png" alt="The Travel Sqaure by Travel Beans">
+                            <img src="/images/Travel-Square.png" alt="The Travel Sqaure by Travel Beans">
                         </a>
                     </h1>
                     
@@ -255,14 +256,14 @@
 					
 					
                         <div class="travelo-box booking-section">
-                            <form action="/admin/package" method="POST" class="booking-form">
+                            <form class="booking-form" >
                                 <div class="person-information"><center>
                                     <h2>Package & Trip Information</h2></center><hr>
 									
                                     <div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
                                             <label>Package Title</label>
-                                            <input type="text" class="input-text full-width" name="pakage_title" ng-model="package.title" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="package_title" ng-model="package.title" value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>Venue</label>
@@ -333,31 +334,31 @@
                                 </div><br>
                                 <div class="group-details"><center>
                                     <h2>Day Wise Schedule & Timming</h2><hr></center>
-									<h4>Days</h4>
+                                     <label>Days</label>
 									<div class="form-group row">
 										<div class="col-sm-6 col-md-5">
                                             <label>Venue Name</label>
-                                            <input type="text" class="input-text full-width" name="venue_name" ng-model="package.venue_name" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="venue_name" ng-model="package_days.venue_name" value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>Venue Image URL</label>
-                                            <input type="text" class="input-text full-width" name="venue_image_url" ng-model="package.venue_image_url"value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="venue_image_url" ng-model="package_days.venue_image_url"value="" placeholder="">
                                         </div>
                                         
                                     </div>
 									<div class="form-group row">
 										<div class="col-sm-6 col-md-5">
                                             <label>Description</label>
-                                            <input type="text" class="input-text full-width" name="description" ng-model="package.description" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="description" ng-model="package_days.description" value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>Timing</label>
-                                            <input type="text" class="input-text full-width" name="timming" ng-model="package.timing" value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="timming" ng-model="package_days.timing" value="" placeholder="">
                                         </div>  
                                         
                                     </div>
 									
-									<button  class="button btn-medium sky-blue1 uppercase" ng-click=addanotherday()>Add Another Day +</button>
+									<button type="button" class="button btn-medium sky-blue1 uppercase" ng-click=addAnotherDay()>Add Another Day +</button>
                                 </div>
                                 <br>
                                 <div class="booking-type"><center>
@@ -365,12 +366,12 @@
 									
                                     <div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
-                                            <label>Enter Amenities</label>
-                                            <input type="text" class="input-text full-width" name="enter_amenities" ng-model="package.amenities"value="" placeholder="">
+                                            <label for="Enter Amenities">Enter Amenities</label>
+                                            <input type="text" class="input-text full-width" name="enter_amenities" ng-model="package_amenity.amenities"value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>Add More Amenities</label>
-                                            <button class="button btn-medium sky-blue1 uppercase" ng-click=addamenities()>Add More +</button>
+                                            <button class="button btn-medium sky-blue1 uppercase" ng-click=addAmenities()>Add More +</button>
                                         </div>
                                     </div>
 								
@@ -379,17 +380,23 @@
                                
                                 <div class="form-group row">
                                     <div class="col-sm-6 col-md-5">
-                                        <button type="submit" class="full-width btn-large" ng-model="package.package_id" ng-click=addpakage() >Create Package</button>
+                                        <button type="submit" class="full-width btn-large" ng-click="addPackage()">Create Package</button>
                                     </div>
    
                                 </div>
                             </form>
                         </div>
                     </div>
+                </div>
+    </div>                
+                </div>
+    </div>                
+                </div>
+                    
     </div>                
                     <div class="sidebar col-sm-4 col-md-3">
                         <div class="travelo-box contact-box"><center>
-                            <img src="images/the-travel-square-logo.png" width="210" height="210"></center>
+                            <img src="/images/the-travel-square-logo.png" width="210" height="210"></center>
                         </div>    
                     </div>
                 </div>
@@ -430,7 +437,7 @@
                             </ul>
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                            <img src="images/the-travel-square-200x200.png">
+                            <img src="/images/the-travel-square-200x200.png">
                             <br>
                             
                             <br>

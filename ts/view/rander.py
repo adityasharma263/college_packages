@@ -33,13 +33,13 @@ def package():
 @app.route('/admin/student', methods=['GET','POST'])
 def student():
     if request.method == 'GET':
-        return render_template('student-registration-form.html')
+        return render_template('students-registration-form.html')
     elif request.method == 'POST':
         post_data = request.form.to_dict()
         res = requests.post('http://127.0.0.1:5000/api/v1/student', json=post_data)
         print(res.json(), "response")
         response = res.json()
-        return render_template('student-registration-form.html', response=response)
+        return render_template('students-registration-form.html', response=response)
         
 @app.errorhandler(400)
 def page_not_found():
