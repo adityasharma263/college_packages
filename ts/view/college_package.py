@@ -1,4 +1,4 @@
-from ts.model.college_packages import College, Package, Day, Student, Course, Amenity
+from ts.model.college_packages import College, Package, Day, Student, Course, Amenity, Image, Availability
 from ts import app
 from sqlalchemy import or_
 from flask import jsonify, request
@@ -18,7 +18,6 @@ def college_api():
         return jsonify({'result': {'college': result.data}, 'message': "Success", 'error': False})
     else:
         college = request.json
-        print(college,"checkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
         courses = college.get("courses", None)
         college.pop("courses", None)
         college_post = College(**college)
@@ -63,12 +62,13 @@ def package_api():
         return jsonify({'result': {'package': result.data}, 'message': "Success", 'error': False})
     else:
         package = request.json
-        print(package, "daaaaaaaaaaaaaataaaaaaaaaaaaaaaa")
         days = package.get("days", None)
-        print(days,"bbbbbbbbbbbbbbbbbbbbbbbbbb")
         amenities = package.get("amenities", None)
-        print(amenities,"ccccccccccccccccccccccccccccc")
+        availabilities = package.get("availabilities", None)
+        images = package.get("images", None)
+        package.pop("availabilities", None)
         package.pop("days", None)
+        package.pop("images", None)
         package.pop("amenities", None)
         package_post = Package(**package)
         package_post.save()
@@ -82,6 +82,16 @@ def package_api():
             amenity_post = Amenity(**amenity)
             package_post.amenities.append(amenity_post)
             amenity_post.save()
+        for image in images:
+            image['package_id'] = package_post.id
+            image_post = Image(**image)
+            package_post.images.append(image_post)
+            image_post.save()
+        for availability in availabilities:
+            availability['package_id'] = package_post.id
+            availability_post = Availability(**availability)
+            package_post.availabilities.append(availability_post)
+            availability_post.save()
         result = PackageSchema().dump(package_post)
         return jsonify({'result': {'package': result.data}, 'message': "Success", 'error': False})
 
