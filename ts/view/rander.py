@@ -5,7 +5,7 @@ from ts import app
 from flask import render_template, request, make_response, jsonify, abort, redirect
 import requests
 
-@app.route('/admin/college', methods=['GET','POST'])
+@app.route('/admin/college', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
         return render_template('partner-registration-form.html')
@@ -18,7 +18,7 @@ def home():
         return render_template('partner-registration-form.html', response=response)
 
 
-@app.route('/admin/package', methods=['GET','POST'])
+@app.route('/admin/package', methods=['GET', 'POST'])
 def package():
     if request.method == 'GET':
         return render_template('package-entry-form.html')
