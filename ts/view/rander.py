@@ -14,6 +14,7 @@ def home():
         res = requests.post('http://127.0.0.1:5000/api/v1/college', json=post_data)
         print(res.json(), "response")
         response = res.json()
+        print(response,"aaasssssssssssssssssjhjh")
         return render_template('partner-registration-form.html', response=response)
 
 
