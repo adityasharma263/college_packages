@@ -333,26 +333,53 @@
                                     
                                     <div class="form-group row">
                                         <div class="col-sm-6 col-md-5">
+                                            <label>Price Per Person</label>
+                                            <input type="text" class="input-text full-width" name="tour_category" ng-model="package.price" value="" placeholder="">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 col-md-5">
                                             <label for="Enter Amenities">Enter Images</label>
-                                            <input type="text" class="input-text full-width" name="enter_amenities" ng-model="package_images.image"value="" placeholder="">
+                                            <input type="text" class="input-text full-width" name="enter_amenities" ng-model="package_images.image_url"value="" placeholder="">
                                         </div>
                                         <div class="col-sm-6 col-md-5">
                                             <label>Add More Images</label>
                                             <button class="button btn-medium sky-blue1 uppercase" ng-click=addImages()>Add More +</button>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-6 col-md-5">
-                                            <label>Price Per Person</label>
-                                            <input type="text" class="input-text full-width" name="tour_category" ng-model="package.price" value="" placeholder="">
-                                        </div>
-                                   </div>
 									
                                 </div><br>
                                 <div class="group-details"><center>
+                                        <h2>Trip Availability </h2><hr></center>
+                                         
+                                        <div class="form-group row">
+                                                <div class="col-sm-6 col-md-5">
+                                                        <label>Availability</label>
+                                                        <div class="selector">
+                                                                <select class="full-width" name="select_meal_plan" ng-model="availability_date.Availability" value="" placeholder="">
+                                                                    <option>Select</option>
+                                                                    <option>True</option>
+                                                                    <option>False</option>
+                                                                </select><span class="custom-select full-width">Select</span>
+                                                            </div>
+                                                    </div>
+                                            <div class="col-sm-6 col-md-5"> 
+                                                <label>Date</label>
+                                                <input type="text" class="input-text full-width" name="venue_name" ng-model="availability_date.date" value="" placeholder="">
+                                            </div> 
+                                        </div>                                   
+                                        <button type="button" class="button btn-medium sky-blue1 uppercase" ng-click=tripAvailability()>Add Another Day Availability +</button>
+                                    </div>
+                                    <br>
+                                <div class="group-details"><center>
                                     <h2>Day Wise Schedule & Timming</h2><hr></center>
-                                     <label>Days</label>
+                                     
 									<div class="form-group row">
+                                            <div class="col-sm-6 col-md-5">
+                                                    <label>No Of Day</label>
+                                                    <input type="text" class="input-text full-width" name="venue_name" ng-model="package_days.no_of_day" value="" placeholder="">
+                                                </div>
 										<div class="col-sm-6 col-md-5">
                                             <label>Venue Name</label>
                                             <input type="text" class="input-text full-width" name="venue_name" ng-model="package_days.venue_name" value="" placeholder="">
