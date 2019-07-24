@@ -9,6 +9,16 @@ angular.module('app', [])
     $scope.student={};
     $scope.courses=[];
     $scope.college_courses={};
+    $scope.images=[];
+    $scope.package_images={};
+    $scope.availabilities=[];
+    $scope.availability_date={};
+    //availability
+   
+    //end code
+
+
+    // $scope.counter;
 
     
     
@@ -91,6 +101,9 @@ angular.module('app', [])
     $scope.days.push($scope.package_days);
     $scope.package_days={};
     $scope.package.days=$scope.days;
+    // $scope.counter= 0;
+    // $scope.counter += inc;
+    // $scope.days.no_of_day=$scope.counter;
     console.log("days",$scope.days);
     //createToast("'Day Added!!'","green");
 
@@ -103,7 +116,7 @@ angular.module('app', [])
     $scope.package_amenity={};
     $scope.package.amenities=$scope.amenities;
     console.log("package",$scope.package);
-    //createToast("'amenity Added!!'","green");
+    //createToast("'amenity Added!!'","green")
 
   }
   $scope.addCourse=function(){
@@ -114,4 +127,24 @@ angular.module('app', [])
     //createToast("'course Added!!'","green");
 
   }
+  $scope.addImages=function(){
+    $scope.images.push($scope.package_images);
+    $scope.package_images={};
+    $scope.package.images=$scope.images;
+    console.log("package",$scope.package);
+    //createToast("'course Added!!'","green");
+
+  }
+   
+  $scope.tripAvailability=function(){
+    console.log("function working");
+    $scope.availabilities.push($scope.availability_date);
+    $scope.availability_date={};
+    $scope.package.availabilities=$scope.availabilities;
+    console.log("package",$scope.availabilities);
+    console.log("function ended");
+  }
+  
+  
+
 }]);
