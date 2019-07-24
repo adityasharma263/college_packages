@@ -21,6 +21,7 @@ class Package(Base):
     days = db.relationship('Day', backref='package')
     images = db.relationship('Image', backref='package')
     amenities = db.relationship('Amenity', backref='package')
+    availabilities = db.relationship('Availability', backref='package')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -45,6 +46,21 @@ class Day(Base):
 
     def __repr__(self):
         return '<no_of_day %r>' % self.no_of_day
+
+
+class Availability(Base):
+
+    __tablename__ = 'Availability'
+
+    Availability = db.Column(db.Boolean, default=True, nullable=True)
+    date = db.Column(db.DateTime, nullable=True)
+    package_id = db.Column(db.Integer, db.ForeignKey('package.id'), nullable=False)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def __repr__(self):
+        return '<amenity %r>' % self.amenity
 
 
 class Amenity(Base):

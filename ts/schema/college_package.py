@@ -1,4 +1,4 @@
-from ts.model.college_packages import College, Course, Student, Day, Amenity
+from ts.model.college_packages import College, Course, Student, Day, Amenity, Image, Availability
 from ts.model.college_packages import Package
 
 from ts import ma
@@ -7,6 +7,18 @@ from ts import ma
 class AmenitySchema(ma.ModelSchema):
     class Meta:
         model = Amenity
+        exclude = ('updated_at', 'created_at')
+
+
+class ImageSchema(ma.ModelSchema):
+    class Meta:
+        model = Image
+        exclude = ('updated_at', 'created_at')
+
+
+class AvailabilitySchema(ma.ModelSchema):
+    class Meta:
+        model = Availability
         exclude = ('updated_at', 'created_at')
 
 
@@ -19,6 +31,8 @@ class DaySchema(ma.ModelSchema):
 class PackageSchema(ma.ModelSchema):
     days = ma.Nested(DaySchema, many=True)
     amenities = ma.Nested(AmenitySchema, many=True)
+    availabilities = ma.Nested(AvailabilitySchema, many=True)
+    images = ma.Nested(ImageSchema, many=True)
 
     class Meta:
         model = Package
