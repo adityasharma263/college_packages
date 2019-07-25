@@ -21,13 +21,19 @@ def home():
 @app.route('/college/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
+        post_data = request.args.to_dict()
+        print(post_data,"gettttttttttttttttttt")
         return render_template('partner-login.html')
     elif request.method == 'POST':
-        post_data = request.form.to_dict()
+        post_data1 = request.json
+        post_data = request.args.to_dict()
+        post_data2 = request.form.to_dict()
+        print(post_data1,post_data,post_data2,"postjjgjjgjgjgjgjj")
         # res = requests.post('http://127.0.0.1:5000/api/v1/college', json=post_data)
         # print(res.json(), "response")
         # response = res.json()
-        return render_template('partner-dashboard.html')
+        return render_template('partner-dashboard.html', data=data)
+
 
 @app.route('/admin/package', methods=['GET', 'POST'])
 def package():
