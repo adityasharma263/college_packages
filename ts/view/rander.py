@@ -18,7 +18,7 @@ def home():
 
 
 @app.route('/college/login', methods=['GET', 'POST'])
-def home():
+def login():
     if request.method == 'GET':
         return render_template('partner-login.html')
     elif request.method == 'POST':
