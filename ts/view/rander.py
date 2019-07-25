@@ -5,12 +5,15 @@ from ts import app
 from flask import render_template, request, make_response, jsonify, abort, redirect
 import requests
 
+
 @app.route('/admin/college', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
         return render_template('partner-registration-form.html')
     elif request.method == 'POST':
         post_data = request.form.to_dict()
+        college_url = 'http://127.0.0.1:5000/api/v1/college'
+        data = requests.get(url=college_url, params=post_data).json()
         res = requests.post('http://127.0.0.1:5000/api/v1/college', json=post_data)
         print(res.json(), "response")
         response = res.json()
@@ -24,10 +27,12 @@ def login():
         return render_template('partner-login.html')
     elif request.method == 'POST':
         post_data = request.form.to_dict()
+        print(post_data)
         # res = requests.post('http://127.0.0.1:5000/api/v1/college', json=post_data)
         # print(res.json(), "response")
         # response = res.json()
         return render_template('partner-dashboard.html')
+
 
 @app.route('/admin/package', methods=['GET', 'POST'])
 def package():
@@ -41,7 +46,6 @@ def package():
         return render_template('package-entry-form.html', response=response)
 
 
-
 @app.route('/admin/student', methods=['GET','POST'])
 def student():
     if request.method == 'GET':
@@ -49,6 +53,7 @@ def student():
     elif request.method == 'POST':
         post_data = request.form.to_dict()
         res = requests.post('http://127.0.0.1:5000/api/v1/student', json=post_data)
+
         print(res.json(), "response")
         response = res.json()
         return render_template('students-registration-form.html', response=response)
