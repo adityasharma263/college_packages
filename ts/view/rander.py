@@ -18,6 +18,17 @@ def home():
         return render_template('partner-registration-form.html', response=response)
 
 
+@app.route('/college/login', methods=['GET', 'POST'])
+def home():
+    if request.method == 'GET':
+        return render_template('partner-login.html')
+    elif request.method == 'POST':
+        post_data = request.form.to_dict()
+        # res = requests.post('http://127.0.0.1:5000/api/v1/college', json=post_data)
+        # print(res.json(), "response")
+        # response = res.json()
+        return render_template('partner-dashboard.html')
+
 @app.route('/admin/package', methods=['GET', 'POST'])
 def package():
     if request.method == 'GET':
