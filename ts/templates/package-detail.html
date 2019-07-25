@@ -1,6 +1,5 @@
 {% block controller%}adminController{% endblock %} {% block
     content%}
-
 <!DOCTYPE html>
 
 <html  ng-app="app" class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -258,14 +257,14 @@
                                             
                                                 <div class="flex-viewport" style="overflow: hidden; position: relative;">
                                                     <ul class="slides slider" style="width: 4000%; transition-duration: 0.6s;">
-                                                        <li class="mySlides" ng-repeat="image in {{data.images}}"  style=" float: left; display: block;" ><img class="img" src="http://[[image.image_url]]" alt="" draggable="false"></li>
+                                                        <li class="mySlides" ng-repeat="image in {{data.images}}"  style=" float: left; display: block;" ><img class="img" src="http://[[image.image_url]] " alt="" draggable="false"></li>
                                                     </ul>
                                                 </div>
                                                 </div>
                                             <div class="image-carousel style1" data-animation="slide" data-item-width="70" data-item-margin="10" data-sync="#photos-tab .photo-gallery">
                                             
                                                     <div  class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides " style="display:block; width: 3000%; ">
-                                                            <li class="demo w3-opacity w3-hover-opacity-off " ng-click="currentDiv($index+1)"  ng-repeat="image in {{data.images}}"  style=" transition-duration: 0.6s; width: 70px; float: left; display: block; height: 70px; position: relative;"><img  class="img" src="http://[[image.image_url]]" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                            <li class="demo w3-opacity w3-hover-opacity-off " ng-click="currentDiv($index+1)"  ng-repeat="image in {{data.images}}"  style=" transition-duration: 0.6s; width: 70px; float: left; display: block; height: 70px; position: relative;"><img  class="img" src="http://[[image.image_url]]" alt="not working" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
                                                         </ul>
                                                     </div>
                                                     <ul class="flex-direction-nav">
@@ -273,7 +272,8 @@
                                                             <li><a class="flex-next"  >Next</a></li>
                                                         </ul>
                                                     </div>
-                                        
+
+                                                </div>
                                     <!-- <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 2600%; transition-duration: 0s; transform: translate3d(-9570px, 0px, 0px);"><li class="clone" aria-hidden="true" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/11.jpg" alt="" draggable="false"></li>
                                             <li style="width: 870px; float: left; display: block;" class=""><img src="/package-detail_files/1.jpg" alt="" draggable="false"></li>
                                             <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/2.jpg" alt="" draggable="false"></li>
@@ -303,6 +303,7 @@
                                             <li class="flex-active-slide" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/11(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
                                         </ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="flex-active">2</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Previous</a></li><li><a class="flex-next" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Next</a></li></ul></div>
                                 </div> -->
+                            
                                 <div id="calendar-tab" class="tab-pane fade">
                                     <label>SELECT MONTH</label>
                                     <div class="col-sm-6 col-md-4 no-float no-padding">flex-next
@@ -341,6 +342,8 @@ We suggest that you contact the host to confirm availability and rates before su
                                 </div>
                             </div>
                         </div>
+                    
+                
                         
                         <div id="cruise-features" class="tab-container">
                             <ul class="tabs">
@@ -402,29 +405,28 @@ We suggest that you contact the host to confirm availability and rates before su
                                         <h2>Day Wise Schedule of The Trip</h2><hr>
                                     </div>
                                     <div class="food-dinning-list image-box style2">
-                                        <!-- {% for day in data %}
-                                        {% for d in day.days %} -->
+                                         {% for day in data.days %}
                                         <div class="box">
                                             <figure>
-                                                <a href=""><img src="{{d.venue_image_url}}" alt="not working"></a>
+                                                <a href=""><img src="{{day.image_url}}"alt="not working"></a>
                                             </figure>
                                             <div class="details">
                                                 
                                                 <div class="box-title">
-                                                    <h4 class="title">Visit to {{d.venue_name}}</h4>
+                                                    <h4 class="title">Visit to {{day.venue_name}}</h4>
                                                     <dl>
                                                         <dt>Timming :</dt>
-                                                        <dd>{{d.timing}}</dd>
+                                                        <dd>{{day.timing}}</dd>
                                                     </dl>
                                                 </div>
                                                 <hr class="hidden-xs">
-                                                <p>d.description</p>
+                                                <p>{{day.description}}</p>
 												</div>
                                         </div>
-                                        <!-- {% endfor %}
                                         {% endfor %}
-                                         -->
                                         
+                                         
+                                         
                                     </div>
                                           </div>
 								
@@ -585,6 +587,7 @@ We suggest that you contact the host to confirm availability and rates before su
                                             </div>
                                         </div>
                                     </div>
+                
                                     <form class="review-form">
                                         <div class="form-group col-md-5 no-float no-padding">
                                             <h4 class="title">Title of your review</h4>
@@ -722,9 +725,9 @@ We suggest that you contact the host to confirm availability and rates before su
                         </div>
                         
                     </div>
-                </div>
-            </div>
+        
         </section>
+    
         
          <footer id="footer" class="style5">
             <div class="footer-wrapper">
