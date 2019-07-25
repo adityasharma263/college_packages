@@ -32,9 +32,10 @@ def login():
         print(post_data, "fgrtfhf")
         college_url = 'http://127.0.0.1:5000/api/v1/college'
         data = requests.get(url=college_url, params=post_data).json()
-        print(data, "response")
-        # print(res.json(), "response")
-        # response = res.json()
+        if len(data['result']['college']) > 0:
+            data = data["result"]["college"][0]
+        else:
+            data = {}
         return render_template('partner-dashboard.html', data=data)
 
 
