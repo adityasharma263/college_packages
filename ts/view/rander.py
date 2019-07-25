@@ -24,14 +24,19 @@ def home():
 @app.route('/college/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
+        post_data = request.args.to_dict()
+        print(post_data)
         return render_template('partner-login.html')
     elif request.method == 'POST':
         post_data = request.form.to_dict()
-        print(post_data)
-        # res = requests.post('http://127.0.0.1:5000/api/v1/college', json=post_data)
+        print(post_data, "fgrtfhf")
+        college_url = 'http://127.0.0.1:5000/api/v1/college'
+        data = requests.get(url=college_url, params=post_data).json()
+        print(data, "response")
         # print(res.json(), "response")
         # response = res.json()
-        return render_template('partner-dashboard.html')
+        return render_template('partner-dashboard.html', data=data)
+
 
 
 @app.route('/admin/package', methods=['GET', 'POST'])
@@ -58,17 +63,20 @@ def student():
         response = res.json()
         return render_template('students-registration-form.html', response=response)
 
+
 @app.route('/package/list', methods=['GET'])
 def packagelist():
     team_url = 'http://127.0.0.1:5000/api/v1/package'
     data = requests.get(url=team_url).json()['result']['package']
     return render_template('all-packages.html', data=data)
 
+
 @app.route('/package/college_dashboard', methods=['GET'])
 def college_dashboard():
     team_url = 'http://127.0.0.1:5000/api/v1/college'
     data = requests.get(url=team_url).json()['result']['college']
     return render_template('partner-dashboard.html', data=data)
+
 
 @app.route('/package/<package_id>', methods=['GET'])
 def packagedetail(package_id):
@@ -80,7 +88,6 @@ def packagedetail(package_id):
     else:
         data = {}
     return render_template('package-detail.html', data=data)
-
 
 
 @app.errorhandler(400)

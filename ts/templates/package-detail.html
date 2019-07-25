@@ -1,6 +1,9 @@
+{% block controller%}adminController{% endblock %} {% block
+    content%}
+
 <!DOCTYPE html>
 
-<html class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html  ng-app="app" class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Page Title -->
     <title>Trip Details | The Travel Square</title>
     
@@ -33,7 +36,8 @@
     <link rel="stylesheet" href="/Partners Screening Form_files/font-awesome.min.css">
     <link href="/Partners Screening Form_files/css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="/Partners Screening Form_files/animate.min.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 
 	
     <script type="text/javascript">
@@ -58,7 +62,7 @@
     
    
 </head>
-<body>
+<body >
     <div id="page-wrapper">
         <header id="header" class="navbar-static-top">
             <div class="topnav hidden-xs">
@@ -248,11 +252,29 @@
                                 <li><a data-toggle="tab" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#calendar-tab">Trip Availability</a></li>
                                 <li class="pull-right"><a class="button btn-small yellow-bg white-color" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Download PDF</a></li>
                             </ul>
-                            <div class="tab-content">
+                            <div class="tab-content" jstcache="0">
                                 <div id="photos-tab" class="tab-pane fade in active">
-                                    <div class="photo-gallery style1" data-animation="slide" data-sync="#photos-tab .image-carousel">
+                                        <div class="photo-gallery style1" data-animation="slide" data-sync="#photos-tab .image-carousel">
+                                            
+                                                <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                                                    <ul class="slides slider" style="width: 4000%; transition-duration: 0.6s;">
+                                                        <li class="mySlides" ng-repeat="image in {{data.images}}"  style=" float: left; display: block;" ><img class="img" src="http://[[image.image_url]]" alt="" draggable="false"></li>
+                                                    </ul>
+                                                </div>
+                                                </div>
+                                            <div class="image-carousel style1" data-animation="slide" data-item-width="70" data-item-margin="10" data-sync="#photos-tab .photo-gallery">
+                                            
+                                                    <div  class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides " style="display:block; width: 3000%; ">
+                                                            <li class="demo w3-opacity w3-hover-opacity-off " ng-click="currentDiv($index+1)"  ng-repeat="image in {{data.images}}"  style=" transition-duration: 0.6s; width: 70px; float: left; display: block; height: 70px; position: relative;"><img  class="img" src="http://[[image.image_url]]" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                        </ul>
+                                                    </div>
+                                                    <ul class="flex-direction-nav">
+                                                            <li><a class="flex-prev" >Previous</a></li>
+                                                            <li><a class="flex-next"  >Next</a></li>
+                                                        </ul>
+                                                    </div>
                                         
-                                    <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 2600%; transition-duration: 0s; transform: translate3d(-9570px, 0px, 0px);"><li class="clone" aria-hidden="true" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/11.jpg" alt="" draggable="false"></li>
+                                    <!-- <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 2600%; transition-duration: 0s; transform: translate3d(-9570px, 0px, 0px);"><li class="clone" aria-hidden="true" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/11.jpg" alt="" draggable="false"></li>
                                             <li style="width: 870px; float: left; display: block;" class=""><img src="/package-detail_files/1.jpg" alt="" draggable="false"></li>
                                             <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/2.jpg" alt="" draggable="false"></li>
                                             <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/3.jpg" alt="" draggable="false"></li>
@@ -280,7 +302,7 @@
                                             <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/10(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
                                             <li class="flex-active-slide" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/11(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
                                         </ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="flex-active">2</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Previous</a></li><li><a class="flex-next" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Next</a></li></ul></div>
-                                </div>
+                                </div> -->
                                 <div id="calendar-tab" class="tab-pane fade">
                                     <label>SELECT MONTH</label>
                                     <div class="col-sm-6 col-md-4 no-float no-padding">flex-next
@@ -380,8 +402,8 @@ We suggest that you contact the host to confirm availability and rates before su
                                         <h2>Day Wise Schedule of The Trip</h2><hr>
                                     </div>
                                     <div class="food-dinning-list image-box style2">
-                                        {% for day in data %}
-                                        {% for d in day.days %}
+                                        <!-- {% for day in data %}
+                                        {% for d in day.days %} -->
                                         <div class="box">
                                             <figure>
                                                 <a href=""><img src="{{d.venue_image_url}}" alt="not working"></a>
@@ -399,9 +421,9 @@ We suggest that you contact the host to confirm availability and rates before su
                                                 <p>d.description</p>
 												</div>
                                         </div>
+                                        <!-- {% endfor %}
                                         {% endfor %}
-                                        {% endfor %}
-                                        
+                                         -->
                                         
                                     </div>
                                           </div>
@@ -604,7 +626,35 @@ We suggest that you contact the host to confirm availability and rates before su
                                             <h4 class="title">Do you have photos to share? <small>(Optional)</small> </h4>
                                             <div class="fileinput full-width" style="line-height: 34px;">
                                                 <input type="file" class="input-text" data-placeholder="select image/s"><input type="text" class="custom-fileinput input-text" placeholder="select image/s">
-                                            </div>
+                                                <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 2600%; transition-duration: 0s; transform: translate3d(-9570px, 0px, 0px);"><li class="clone" aria-hidden="true" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/11.jpg" alt="" draggable="false"></li>
+                                                    <li style="width: 870px; float: left; display: block;" class=""><img src="/package-detail_files/1.jpg" alt="" draggable="false"></li>
+                                                    <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/2.jpg" alt="" draggable="false"></li>
+                                                    <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/3.jpg" alt="" draggable="false"></li>
+                                                    <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/4.jpg" alt="" draggable="false"></li>
+                                                    <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/5.jpg" alt="" draggable="false"></li>
+                                                    <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/6.jpg" alt="" draggable="false"></li>
+                                                    <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/7.jpg" alt="" draggable="false"></li>
+                                                    <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/8.jpg" alt="" draggable="false"></li>
+                                                    <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/9.jpg" alt="" draggable="false"></li>
+                                                    <li class="" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/10.jpg" alt="" draggable="false"></li>
+                                                    <li class="flex-active-slide" style="width: 870px; float: left; display: block;"><img src="/package-detail_files/11.jpg" alt="" draggable="false"></li>
+                                                <li style="width: 870px; float: left; display: block;" class="clone" aria-hidden="true"><img src="/package-detail_files/1.jpg" alt="" draggable="false"></li></ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li><li><a class="">4</a></li><li><a class="">5</a></li><li><a class="">6</a></li><li><a class="">7</a></li><li><a class="">8</a></li><li><a class="">9</a></li><li><a class="">10</a></li><li><a class="flex-active">11</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Previous</a></li><li><a class="flex-next"sr>Next</a></li></ul></div>
+                                            <div class="image-carousel style1" data-animation="slide" data-item-width="70" data-item-margin="10" data-sync="#photos-tab .photo-gallery">
+                                                
+                                            <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 2200%; transition-duration: 0s; transform: translate3d(-90px, 0px, 0px);">
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/1(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/2(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/3(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/4(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/5(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/6(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/7(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/8(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/9(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/10(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                    <li class="flex-active-slide" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/package-detail_files/11(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                                </ul></div><ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="flex-active">2</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Previous</a></li><li><a class="flex-next" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Next</a></li></ul></div>
+                                        </div>                 </div>
                                         </div>
                                         <div class="form-group">
                                             <h4 class="title">Share with friends <small>(Optional)</small></h4>
@@ -768,6 +818,8 @@ We suggest that you contact the host to confirm availability and rates before su
     <!-- load page Javascript -->
     <script type="text/javascript" src="/Partners Screening Form_files/theme-scripts.js.download"></script>
     <script type="text/javascript" src="/Partners Screening Form_files/scripts.js.download"></script>
-    
+    <script type="text/javascript" src="/app.js"></script>
+
 
 </body></html>
+{% endblock %}
