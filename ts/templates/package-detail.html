@@ -355,7 +355,8 @@ We suggest that you contact the host to confirm availability and rates before su
                                                         
                                                         <tr>
                                                             <td>1</td>
-                                                            <td>{{data.days.venue_name}}</td>
+                                                            <td>data not coming
+                                                            </td>
                                                             <td>---</td>
                                                         </tr>
                                                        
@@ -379,59 +380,29 @@ We suggest that you contact the host to confirm availability and rates before su
                                         <h2>Day Wise Schedule of The Trip</h2><hr>
                                     </div>
                                     <div class="food-dinning-list image-box style2">
+                                        {% for day in data %}
+                                        {% for d in day.days %}
                                         <div class="box">
                                             <figure>
-                                                <a href=""><img src="" alt=""></a>
+                                                <a href=""><img src="{{d.venue_image_url}}" alt="not working"></a>
                                             </figure>
                                             <div class="details">
                                                 
                                                 <div class="box-title">
-                                                    <h4 class="title">Visit to Yamaha Factory</h4>
+                                                    <h4 class="title">Visit to {{d.venue_name}}</h4>
                                                     <dl>
                                                         <dt>Timming :</dt>
-                                                        <dd>11:00 A.M. - 05:00 P.M.</dd>
+                                                        <dd>{{d.timing}}</dd>
                                                     </dl>
                                                 </div>
                                                 <hr class="hidden-xs">
-                                                <p>Visit The Yamaha Motors Factory in Noida and Explore More About the Making of The Yamaha  Bikes and Engines . Learn the Technology 
-													Developed By the Franchise .</p>
+                                                <p>d.description</p>
 												</div>
                                         </div>
-                                        <div class="box">
-                                            <figure>
-                                                <a href=""><img src="" alt=""></a>
-                                            </figure>
-                                            <div class="details">
-                                                
-                                                <div class="box-title">
-                                                    <h4 class="title">Visit to Honda Factory</h4>
-                                                    <dl>
-                                                        <dt>Timming :</dt>
-                                                        <dd>11:00 A.M. - 05:00 P.M.</dd>
-                                                    </dl>
-                                                </div>
-                                                <hr class="hidden-xs">
-                                                <p>Visit The Yamaha Motors Factory in Noida and Explore More About the Making of The Yamaha  Bikes and Engines . Learn the Technology 
-													Developed By the Franchise .</p>
-												</div>
-                                        </div><div class="box">
-                                            <figure>
-                                                <a href=""><img src="" alt=""></a>
-                                            </figure>
-                                            <div class="details">
-                                                
-                                                <div class="box-title">
-                                                    <h4 class="title">Visit to Yamaha Factory</h4>
-                                                    <dl>
-                                                        <dt>Timming :</dt>
-                                                        <dd>11:00 A.M. - 05:00 P.M.</dd>
-                                                    </dl>
-                                                </div>
-                                                <hr class="hidden-xs">
-                                                <p>Visit The Yamaha Motors Factory in Noida and Explore More About the Making of The Yamaha  Bikes and Engines . Learn the Technology 
-													Developed By the Franchise .</p>
-												</div>
-                                        </div>
+                                        {% endfor %}
+                                        {% endfor %}
+                                        
+                                        
                                     </div>
                                           </div>
 								
@@ -657,22 +628,23 @@ We suggest that you contact the host to confirm availability and rates before su
                     </div>
                     <div class="sidebar col-md-3">
                         <article class="detailed-logo">
-                            <figure>
-                                <img width="320" height="81" src="/package-detail_files/6.png" alt="">
-                            </figure>
+                            
+                                 <figure>
+                                     <img width="320" height="81" src="" alt="venue image"><!--input venue image url-->
+                                 </figure>
+                              
                             <div class="details">
-                                <h2 class="box-title">Students Solan Trip<small></small></h2>
+                                <h2 class="box-title">{{data.title}}<small></small></h2>
                                 <span class="price clearfix">
-                                    <small class="pull-left">from</small>
-                                    <span class="pull-right">$239</span>
+                                    <small class="pull-left">Price Per Person</small>
+                                    <span class="pull-right">{{data.price}}</span>
                                 </span>
-                                <div class="feedback clearfix">
+                                <!-- <div class="feedback clearfix">
                                     <div title="" class="five-stars-container" data-toggle="tooltip" data-placement="bottom" data-original-title="4 stars"><span class="five-stars" style="width: 80%;"></span></div>
                                     <span class="review pull-right">270 reviews</span>
-                                </div>
-                                <p class="description">Get a Refreshing Trip to Solan With Students and Faculties , Let The Interaction With Nature Began , Visit Multiple Industries
-								and Explore More With The Whole New Learning System With Fun.</p>
-                                <a class="button yellow full-width uppercase btn-small">add to wishlist</a>
+                                </div> -->
+                                <p class="description">{{data.about_trip}}</p>
+                                <a class="button yellow full-width uppercase btn-small">Book Now</a>
                             </div>
                         </article>
                         <div class="travelo-box contact-box"><center>
