@@ -1,3 +1,5 @@
+<!-- {% block controller%}adminController{% endblock %} {% block
+    content%} -->
 <!DOCTYPE html>
 <html class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Page Title -->
@@ -102,12 +104,12 @@
                     <nav id="main-menu" role="navigation">
                         <ul class="menu">
                             <li class="menu-item-has-children">
-                                <a href="index.html">Bagpackers</a>
+                                <a href="/">Bagpackers</a>
                                 <ul>
                                 </ul>
                             </li>
 							<li class="menu-item-has-children">
-                                <a href="all-packages.html">All Packages</a>
+                                <a href="/package/list">All Packages</a>
                                 <ul>
                                 </ul>
                             </li>
@@ -258,7 +260,7 @@
                         </ul>
                         <div class="tab-content">
                             <div id="welcome" class="tab-pane fade in active">
-                                <center><h1 class="no-margin skin-color">Hello Team JRE Group of Institution
+                                <center><h1 class="no-margin skin-color">Hello Team 
                                     {{data.institution_name}} , Welcome to The Bagpackers !</h1>
                                 <p>We are Happy to Help Institutions & Students , Anywhere Anytime !</p>
                                 
@@ -319,73 +321,20 @@
                                     </form>
                                 </div>
                                 <div class="booking-history">
-                                    <div class="booking-info clearfix">
-                                        <div class="date">
-                                            <label class="month">OCT</label>
-                                            <label class="date">12</label>
-                                            <label class="day">FRI</label>
-                                        </div>
-                                        <h4 class="box-title"><i class="icon soap-icon-plane-right takeoff-effect yellow-color circle"></i>Park Plaza , Delhi<small>Mr. Amarjeet Singh</small></h4>
-                                        
-                                        <button class="btn-mini status">Generate Payment Link</button>
-                                    </div>
+                                    {% for j in data.packages %}
                                     <div class="booking-info clearfix">
                                         <div class="date">
                                             <label class="month">OCT</label>
                                             <label class="date">13</label>
                                             <label class="day">SAT</label>
                                         </div>
-                                        <h4 class="box-title"><i class="icon soap-icon-plane-right takeoff-effect yellow-color circle"></i>Country INN , Ghaziabad<small>Mr. Akash Tiwari</small></h4>
+                                        <h4 class="box-title"><i class="icon soap-icon-plane-right takeoff-effect yellow-color circle"></i>{{j.title}} , {{j.venue}}<small>{{data.coordiantor_name}}</small></h4>
                                         
                                         <button class="btn-mini status">Generate Payment Link</button>
                                     </div>
-                                    <div class="booking-info clearfix">
-                                        <div class="date">
-                                            <label class="month">NOV</label>
-                                            <label class="date">1</label>
-                                            <label class="day">MON</label>
-                                        </div>
-                                        <h4 class="box-title"><i class="icon soap-icon-hotel blue-color circle"></i>The Leela Ambience Convention Hotel , Delhi<small>Mr. Ishan Sachdev</small></h4>
-                                       
-                                        <button class="btn-mini status">PENDING</button>
-                                    </div>
-                                    <div class="booking-info clearfix">
-                                        <div class="date">
-                                            <label class="month">DEC</label>
-                                            <label class="date">2</label>
-                                            <label class="day">THU</label>
-                                        </div>
-                                        <h4 class="box-title"><i class="icon soap-icon-car red-color circle"></i>Delhi-Agra , Outstation Cab<small>Mr. Anirudh Jain</small></h4>
-                                        <button class="btn-mini status">PENDING</button>
-                                    </div>
-                                    <div class="booking-info clearfix">
-                                        <div class="date">
-                                            <label class="month">DEC</label>
-                                            <label class="date">5</label>
-                                            <label class="day">SUN</label>
-                                        </div>
-                                        <h4 class="box-title"><i class="icon soap-icon-cruise green-color circle"></i>DEL-LKO<small>Mrs. Vibha Goel</small></h4>
-                                        <button class="btn-mini status">PENDING</button>
-                                    </div>
-                                    <div class="booking-info clearfix cancelled">
-                                        <div class="date">
-                                            <label class="month">NOV</label>
-                                            <label class="date">3</label>
-                                            <label class="day">SAT</label>
-                                        </div>
-                                        <h4 class="box-title"><i class="icon soap-icon-plane-right takeoff-effect circle"></i>Park Plaza , Delhi<small>Ms. Sushmita Kohli</small></h4>
-                                        
-                                        <button class="btn-mini status">CANCELLED</button>
-                                    </div>
-                                    <div class="booking-info clearfix cancelled">
-                                        <div class="date">
-                                            <label class="month">DEC</label>
-                                            <label class="date">11</label>
-                                            <label class="day">THU</label>
-                                        </div>
-                                        <h4 class="box-title"><i class="icon soap-icon-car circle"></i>DEL-IXM<small>Mr. Prashant Sharma</small></h4>
-                                        <button class="btn-mini status">CANCELLED</button>
-                                    </div>
+                                   {% endfor %}
+
+                                         
                                 </div>
 
                             </div>
@@ -395,7 +344,7 @@
 							 
                            
 						   <div id="profile" class="tab-pane fade">
-								<center><h1 class="no-margin skin-color">JRE Group of Institution{{data.institution_name}}</h1><p>Institution Partners</p></center><br>
+								<center><h1 class="no-margin skin-color">{{data.institution_name}}</h1><p>Institution Partners</p></center><br>
                                 <div class="suggestions image-carousel style2" data-animation="slide" data-item-width="170" data-item-margin="22">
                                 
 									
@@ -407,29 +356,35 @@
                                              
                                             <h2 class="box-title fullname">Institution Details </h2><br>
 											<dl class="term-description">
-                                                <dt>Institution Name:</dt><dd>JRE Group of Institution{{data.institution_name}}</dd>
-                                                <dt>City :</dt><dd>Greater Noida {{data.city}}</dd>
-                                                <dt>Mail Address:</dt><dd>contact@jre.edu.in{{data.email}}</dd>
-                                                <dt>Institution Contact:</dt><dd>9811080535{{data.phone}}</dd>
-                                                <dt>Course:</dt><dd>B.tech , B.Com , LLB{{data.course}} </dd>
-                                                <dt>Domain:</dt><dd>Technical{{data.college_domain}}</dd>
-                                                <dt>No. of Students:</dt><dd>2,000{{data.no_of_student}}</dd>
-                                                <dt>No. of Employee:</dt><dd>105{{data.no_of_employees}}</dd>
-                                                <dt>Username:</dt><dd>jresoe{{data.username}}</dd>
-                                                <dt>Password:</dt><dd>XXXX{{data.password}}</dd>
+                                                <dt>Institution Name:</dt><dd>{{data.institution_name}}</dd>
+                                                <dt>City :</dt><dd> {{data.city}}</dd>
+                                                <dt>Mail Address:</dt><dd>{{data.email}}</dd>
+                                                <dt>Institution Contact:</dt><dd>{{data.phone}}</dd>
+                                                
+                                                <dt>Course:</dt><dd>
+                                                    {% for i in data.courses%}
+                                                    {{i.course}}
+                                                    {% endfor %} 
+                                                </dd>
+                                                
+                                                <dt>Domain:</dt><dd>{{data.college_domain}}</dd>
+                                                <dt>No. of Students:</dt><dd>{{data.no_of_student}}</dd>
+                                                <dt>No. of Employee:</dt><dd>{{data.no_of_employees}}</dd>
+                                                <dt>Username:</dt><dd>{{data.username}}</dd>
+                                                <dt>Password:</dt><dd>{{data.password}}</dd>
                                             </dl><br>
 											<h2 class="box-title fullname">Coordinator Details </h2><br>
                                             <dl class="term-description">
-                                                <dt>Co-ordianter name:</dt><dd>SB Goyal{{data.coordiantor_name}}</dd>
-                                                <dt>Contact No.:</dt><dd>9811080535{{data.coordiantor_phone}}</dd>
+                                                <dt>Co-ordianter name:</dt><dd>{{data.coordiantor_name}}</dd>
+                                                <dt>Contact No.:</dt><dd>{{data.coordiantor_phone}}</dd>
                                                
                                             </dl>
 											<h2 class="box-title fullname">Bank Details </h2><br>
 											<dl class="term-description">
-                                                <dt>Bank Name:</dt><dd>ICICI Bank{{data.bank_name}}</dd>
-												<dt>Account Holder's Name :</dt><dd>JRE Group of Institution{{data.account_holder}}</dd>
-                                                <dt>Account Number:</dt><dd>13004532{{data.account_no}}</dd>
-                                                <dt>IFSC Code:</dt><dd>ICIC0997{{data.ifsc_code}}</dd>
+                                                <dt>Bank Name:</dt><dd>{{data.bank_name}}</dd>
+												<dt>Account Holder's Name :</dt><dd>{{data.account_holder}}</dd>
+                                                <dt>Account Number:</dt><dd>{{data.account_no}}</dd>
+                                                <dt>IFSC Code:</dt><dd>{{data.ifsc_code}}</dd>
                                                 
                                             </dl>
                                     
@@ -755,3 +710,4 @@
                                 </ul>
                             </li>
                         </ul></div></div></body></html>
+                        <!-- {% endblock %} -->
