@@ -50,9 +50,8 @@ class Day(Base):
 
 class Availability(Base):
 
-    __tablename__ = 'Availability'
+    __tablename__ = 'availability'
 
-    Availability = db.Column(db.Boolean, default=True, nullable=True)
     date = db.Column(db.DateTime, nullable=True)
     package_id = db.Column(db.Integer, db.ForeignKey('package.id'), nullable=False)
 
@@ -60,7 +59,7 @@ class Availability(Base):
         super().__init__(*args, **kwargs)
 
     def __repr__(self):
-        return '<amenity %r>' % self.amenity
+        return '<date %r>' % self.date
 
 
 class Amenity(Base):
@@ -114,6 +113,7 @@ class College(Base):
     account_no = db.Column(db.String, nullable=True)
     packages = db.relationship('Package', secondary='college_selected_package')
 
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -140,7 +140,10 @@ class CollegeSelectedPackage(Base):
     __tablename__ = 'college_selected_package'
 
     college_id = db.Column(db.Integer, db.ForeignKey('college.id'))
+    college = db.relationship('College', foreign_keys=college_id)
     package_id = db.Column(db.Integer, db.ForeignKey('package.id'))
+    package = db.relationship('Package', foreign_keys=package_id)
+    booking_date = db.Column(db.DateTime, nullable=True)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
