@@ -1,4 +1,4 @@
-from ts.model.college_packages import College, Course, Student, Day, Amenity, Image, Availability
+from ts.model.college_packages import College, Course, Student, Day, Amenity, Image, Availability, CollegeSelectedPackage
 from ts.model.college_packages import Package
 
 from ts import ma
@@ -36,7 +36,10 @@ class PackageSchema(ma.ModelSchema):
 
     class Meta:
         model = Package
-        exclude = ('updated_at', 'created_at')
+        exclude = ('updated_at', 'created_at', 'booking_date')
+
+
+
 
 
 class CourseSchema(ma.ModelSchema):
@@ -51,6 +54,15 @@ class CollegeSchema(ma.ModelSchema):
 
     class Meta:
         model = College
+        exclude = ('updated_at', 'created_at')
+
+
+class CollegeSelectedPackageSchema(ma.ModelSchema):
+    package = ma.Nested(PackageSchema, many=False)
+    college = ma.Nested(CollegeSchema, many=False,  exclude=("packages",))
+
+    class Meta:
+        model = CollegeSelectedPackage
         exclude = ('updated_at', 'created_at')
 
 

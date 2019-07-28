@@ -1,8 +1,8 @@
-from ts.model.college_packages import College, Package, Day, Student, Course, Amenity, Image, Availability
+from ts.model.college_packages import College, Package, Day, Student, Course, Amenity, Image, Availability, CollegeSelectedPackage
 from ts import app
 from sqlalchemy import or_
 from flask import jsonify, request
-from ts.schema.college_package import CollegeSchema, PackageSchema, DaySchema, StudentSchema, CourseSchema, AmenitySchema
+from ts.schema.college_package import CollegeSchema, PackageSchema, DaySchema, StudentSchema, CourseSchema, AmenitySchema, CollegeSelectedPackageSchema
 
 
 @app.route('/api/v1/college', methods=['GET', 'POST'])
@@ -146,3 +146,20 @@ def student_id(id):
             return jsonify({'result': {}, 'message': "No Found", 'error': True})
         Student.delete_db(s)
         return jsonify({'result': {}, 'message': "Success", 'error': False})
+
+@app.route('/api/v1/booking', methods=['GET', 'POST'])
+def booking_api():
+    if request.method == 'GET':
+        args = request.args.to_dict()
+        args.pop('page', None)
+        args.pop('per_page', None)
+        page = int(request.args.get('page', 1))
+        per_page = int(request.args.get('per_page', 10))
+        data = CollegeSelectedPackage.query.filter_by(**args).offset((int(page) - 1) * int(per_page)).limit(int(per_page)).all()
+        result = CollegeSelectedPackageSchema(many=True).dump(data)
+        return jsonify({'result': {'bookings': result.data}, 'message': "Success", 'error': False})
+    else:
+        post = CollegeSelectedPackage(**request.json)
+        post.save()
+        result = CollegeSelectedPackageSchema().dump(post)
+        return jsonify({'result': {'booking': result.data}, 'message': "Success", 'error': False})
