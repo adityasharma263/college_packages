@@ -90,8 +90,8 @@ angular.module('app', ['angular.filter'])
           if(window.screen.availWidth >=440){
             console.log(window.screen.availWidth);
             $( ".flex-next" ).click(function() {
-              if($scope.hotel[0].images.length>10){
-               var totalSlides=($scope.hotel[0].images.length)/10;
+              if($scope.package[0].images.length>10){
+               var totalSlides=($scope.package[0].images.length)/10;
               }
               else{
                var totalSlides=1;
@@ -109,8 +109,7 @@ angular.module('app', ['angular.filter'])
               //     return i;
               //   } 
               //   else if(((lastSlides)>j)&&((totalSlides-1)<i)){
-              //     console.log("2nd if");
-              //     var transform=-(80*j+(800*(i-1)));
+              //     console.log("2nd if");i-1)));
               //     console.log("transform",transform);
               //     document.body.style.setProperty('--txx',transform+'px');
               //     $(".demo").css("transform","translate3d(var(--txx), 0px, 0px)");
@@ -127,6 +126,7 @@ angular.module('app', ['angular.filter'])
               //   $(".demo").css("transform","translate3d(0px, 0px, 0px)" );
               //   $scope.currentDiv(1);
               //   j=1;
+              //     var transform=-(80*j+(800*(
               //   i=1;
               //   return i;
               //   return j;
@@ -188,7 +188,7 @@ angular.module('app', ['angular.filter'])
           
             $( ".flex-next" ).click(function() {
               console.log(window.screen.availWidth);
-              if($scope.hotel[0].images.length>3){
+              if($scope.package[0].images.length>3){
                 var totalSlides=($scope.hotel[0].images.length)/3;
                }
                else{
@@ -308,8 +308,11 @@ angular.module('app', ['angular.filter'])
   
 
 }])
+.config(['$qProvider', function ($qProvider) {
+  $qProvider.errorOnUnhandledRejections(false);
+}])
 
-.controller('packagelistController',["$scope", "$http", function($scope, $http) {
+.controller('packagelistController',["$scope", "$http", function($scope, $http, $log) {
 
   $scope.package = {
     rating : null ,
@@ -321,19 +324,17 @@ angular.module('app', ['angular.filter'])
   $scope.min= 0;
   $scope.max= 200000;
   var api_url='http://127.0.0.1:5000';
-
-
-
-
-
-
+  var str = document.location.search;
+  // var key = str.split("?");
+  // var key1 = key[1].split("=");
+  // console.log("key1",key1[0]);
+  $scope.packageData = [];
 
 $scope.getPackageData = function(cb){
   console.log("filter finction ")
-
   if(!cb) $scope.package.page = 1;
-
-  let searchURL = '127.0.0.1:5000/api/v1/package'+document.location.search
+  
+  let searchURL = 'http://127.0.0.1:5000/api/v1/package'
   console.log("searchurl",searchURL);
  
   
@@ -342,18 +343,32 @@ $scope.getPackageData = function(cb){
     if($scope.package[param])
     searchURL += `&${param}=${$scope.package[param]}`;
   });
-
+console.log("automaticccccccccccccccccccccccccccccccccccccccc");
   $http({
     method: 'GET',
-    url: searchURL
-  }).then(function(res){
+    url: 'https://127.0.0.1:5000/api/v1/package'
+  }).then(function success(response) {
 
+    // this function will be called when the request is success
     if(cb){
       cb(res);
     }else{
-      $scope.packageData = res.response.result.package; 
-      console.log("$scope.packageData",$scope.packageData);
+      $scope.packageData = res.data.result.package;
+      console.log("$scope.hotelData",$scope.packageData);
     }
-  })
-}
+
+
+
+    
+    }, function error(response) {
+    
+    // this function will be called when the request returned error status
+    
+    });
+
+   
+    
+  }
+
+$scope.getPackageData();
 }]);

@@ -56,9 +56,9 @@ def package_api():
         args.pop('per_page', None)
         page = int(request.args.get('page', 1))
         per_page = int(request.args.get('per_page', 10))
-        print("3333333333333333333333333333333333333333333333333333",args)
         data = Package.query.filter_by(**args).offset((int(page) - 1) * int(per_page)).limit(int(per_page)).all()
         result = PackageSchema(many=True).dump(data)
+        print(result.data,"rrtthgfvfgrhtyhrg" )
         return jsonify({'result': {'package': result.data}, 'message': "Success", 'error': False})
     else:
         package = request.json

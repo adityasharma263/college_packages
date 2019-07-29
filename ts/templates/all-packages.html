@@ -31,7 +31,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script type="text/javascript" src="http://code.angularjs.org/1.2.1/angular-route.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.4.7/angular-filter.js"></script> 
-1 
+
 
 
     <link rel="stylesheet" href="/Partners Screening Form_files/bootstrap.min.css">
@@ -245,9 +245,6 @@
                                
 
                                 <div class="panel style1 arrow-right">
-
-                                        
-
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" href="#price-filter" class="collapsed">Price</a>
                                         </h4>
@@ -388,11 +385,10 @@
                                     <!-- <div class="cruise-list image-box style3 cruise listing-style1">
                                     <div class="row"> -->
 
-                                    {% for package in data %}
+                                            {% for package in data %}  
                                     
                                     <div class="col-sm-6 col-md-4">
                                      
-  
 
                                         <article class="box">
                                             <figure>
@@ -401,7 +397,7 @@
                                                  </a>
                                             </figure>
                                             <div class="details">
-                                                <h4 class="box-title">{{package.title}}<small>4 Days<!--put counter here--></small></h4>
+                                                <h4 class="box-title">{{package.title}}<small>{{package.trip_duration}} days<!--put counter here--></small></h4>
                                               
                                                 
                                                 <p class="description fourty-space">{{package.tour_category}}<span class="skin-color"></p>
@@ -411,8 +407,9 @@
                                             </div>
                                         </article>
                                     </div>
-                                    
                                     {% endfor %}
+                                    
+                                    
                                     </div>
                                     </div>
                                     <!-- </div> -->
@@ -429,7 +426,6 @@
                         
                     
             </div>
-            
         </section>
 		
          <footer id="footer" class="style5">
