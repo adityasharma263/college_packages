@@ -3,3 +3,48 @@ ng-model="login.password"
 ng-model="login.username"
 ng-controller="adminController" 
 ng-app="app"
+/Partners Screening Form_files/download.jpeg
+https://www.jssor.com/development/
+"http://[[image.image_url]]"
+<script src="jssor.slider.min.js"></script>
+                                                <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                                                          <div class="slides slider" style="width: 2600%; transition-duration: 0.6s;"" >
+                                                                                 <div class="mySlides" style=" width: 870px; float: left; display: block;" ><img data-u="image" src="/Partners Screening Form_files/download.jpeg"/></div>
+                                                                                <div><img data-u="image" src="/Partners Screening Form_files/download.jpeg" /></div>                                
+                                                           </div>                                
+                                                    </div>         
+                                                                       <script> 
+                                                                        var options = { $AutoPlay: 1 };
+                                                                        var jssor_1_slider = new $JssorSlider$("jssor_1", options);
+                                                                       </script>
+
+width="320" height="81"
+  {% for image in package.images[:1] %}
+   {%endfor%}
+   src="{{image.image_url}}"
+
+
+
+
+
+
+
+   filter code from static page 
+   price :
+   <h4 class="panel-title">
+                                        <a data-toggle="collapse" href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#price-filter" class="collapsed">Price</a>
+                                    </h4>
+
+
+
+
+                                         <div id="price-filter" class="panel-collapse collapse">
+                                        <div class="panel-content">
+                                            <div id="price-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 10%; width: 70%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#" style="left: 10%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#" style="left: 80%;"></a></div>
+                                            <br>
+                                            <span class="min-price-label pull-left">$100</span>
+                                            <span class="max-price-label pull-right">$800</span>
+                                            <div class="clearer"></div>
+                                        </div><!-- end content -->
+                                    </div>
+                                </div><!--T-->

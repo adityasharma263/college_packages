@@ -1,0 +1,42 @@
+ <!-- <div class="photo-gallery style1" data-animation="slide" data-sync="#photos-tab .image-carousel">
+                                        
+                                    <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                                    <ul class="slides" style="width: 2600%; transition-duration: 0s; transform: translate3d(-9570px, 0px, 0px);">
+                                        <li class="clone" aria-hidden="true" style="width: 870px; float: left; display: block;">
+                                        <img src="/Package-detail_files/11.jpg" alt="" draggable="false"></li>    mySlides
+
+                                        
+                                            <li style="width: 870px; float: left; display: block;" class=""><img src="/Package-detail_files/1.jpg" alt="" draggable="false"></li>
+                                            <li class="" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/2.jpg" alt="" draggable="false"></li>
+                                            <li class="" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/3.jpg" alt="" draggable="false"></li>
+                                            <li class="" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/4.jpg" alt="" draggable="false"></li>
+                                            <li class="" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/5.jpg" alt="" draggable="false"></li>
+                                            <li class="" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/6.jpg" alt="" draggable="false"></li>
+                                            <li class="" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/7.jpg" alt="" draggable="false"></li>
+                                            <li class="" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/8.jpg" alt="" draggable="false"></li>
+                                            <li class="" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/9.jpg" alt="" draggable="false"></li>
+                                            <li class="" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/10.jpg" alt="" draggable="false"></li>
+                                            <li class="flex-active-slide" style="width: 870px; float: left; display: block;"><img src="/Package-detail_files/11.jpg" alt="" draggable="false"></li>
+
+                                        <li style="width: 870px; float: left; display: block;" class="clone" aria-hidden="true"><img src="/Package-detail_files/1.jpg" alt="" draggable="false"></li></ul></div>
+                                        <ol class="flex-control-nav flex-control-paging"><li><a class="">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li><li><a class="">4</a></li><li><a class="">5</a></li><li><a class="">6</a></li><li><a class="">7</a></li><li><a class="">8</a></li><li><a class="">9</a></li><li><a class="">10</a></li><li><a class="flex-active">11</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Previous</a></li><li><a class="flex-next" href="http://www.soaptheme.net/html/travelo/cruise-detailed.html#">Next</a></li></ul></div>
+                                    <div class="image-carousel style1" data-animation="slide" data-item-width="70" data-item-margin="10" data-sync="#photos-tab .photo-gallery">
+                                        
+                                    <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                                    <ul class="slides" style="width: 2200%; transition-duration: 0s; transform: translate3d(-90px, 0px, 0px);">
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/1(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/2(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/3(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/4(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/5(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/6(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/7(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/8(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/9(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/10(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+                                            <li class="flex-active-slide" style="width: 70px; float: left; display: block; height: 70px; position: relative;"><img src="/Package-detail_files/11(1).jpg" alt="" draggable="false" style="position: absolute; top: 50%; margin-top: -35px; left: 50%; margin-left: -35px;"></li>
+
+
+
+
+clone

@@ -97,6 +97,10 @@ def packagedetail(package_id):
     return render_template('package-detail.html', data=data)
 
 
+@app.route('/')
+def bagpaper_home():
+    return render_template('index.html')
+
 @app.errorhandler(400)
 def page_not_found():
     return render_template("404.html"), 400

@@ -1,6 +1,6 @@
-H<!DOCTYPE html>
+<!DOCTYPE html>
 
-<html class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html ng-app="app" class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Page Title -->
     <title>Bagpackers | The Travel Square</title>
     
@@ -28,7 +28,12 @@ H<!DOCTYPE html>
     <meta name="keywords" content="The Travel Square is a Unique B2B Platform For Travel Agents to Get Best Quotes For Their Travel Booking Leads . Our Network is a Profesional B2B Connection of More Than 5000+ Travel Agents Around the Globe at More Than 250+ Destinations in the World . The Travel Square is Simple to Use , Efficient and Cost Savvy , Which Can Make More Margins in Travel Sales and Make Travel Agents Earn 150% More Profits.">
     <meta name="format-detection" content="7428558566">
     
-  
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="http://code.angularjs.org/1.2.1/angular-route.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.4.7/angular-filter.js"></script> 
+1 
+
+
     <link rel="stylesheet" href="/Partners Screening Form_files/bootstrap.min.css">
     <link rel="stylesheet" href="/Partners Screening Form_files/font-awesome.min.css">
     <link href="/Partners Screening Form_files/css" rel="stylesheet" type="text/css">
@@ -58,7 +63,7 @@ H<!DOCTYPE html>
     
    
 </head>
-<body>
+<body ng-controller="packagelistController">
     <div id="page-wrapper">
         <header id="header" class="navbar-static-top">
             <div class="topnav hidden-xs">
@@ -88,10 +93,10 @@ H<!DOCTYPE html>
                     <nav id="main-menu" role="navigation">
                         <ul class="menu">
                             <li class="menu-item-has-children actives">
-                                <a href="http://139.59.51.174/home" class="active">Home</a>
+                                <a href="/" >Home</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="all-packages.html">All Packages</a>
+                                <a href="/package/list" >All Packages</a>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="travel-partners.html">Our Travel Partners</a>
@@ -228,22 +233,40 @@ H<!DOCTYPE html>
             <div class="container">
                 <div id="main">
                     <div class="row">
-                        <div class="col-sm-4 col-md-3"><!--T-->
+                        <div class="col-sm-4 col-md-3"><!--filter strts-->
                             <div class="toggle-container filters-container"><!--T-->
                                 <div class="panel style1 arrow-right "><!--T-->
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#price-filter" class="collapsed">Price</a>
-                                    </h4>
-                                    <div id="price-filter" class="panel-collapse collapse">
-                                        <div class="panel-content">
-                                            <div id="price-range" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all" style="left: 10%; width: 70%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#" style="left: 10%;"></a><a class="ui-slider-handle ui-state-default ui-corner-all" href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#" style="left: 80%;"></a></div>
-                                            <br>
-                                            <span class="min-price-label pull-left">$100</span>
-                                            <span class="max-price-label pull-right">$800</span>
-                                            <div class="clearer"></div>
-                                        </div><!-- end content -->
+                                    <button class="btn-medium icon-check uppercase full-width" ng-click="package = {  rating : null ,
+                                        star :  null,
+                                        price_start : null,
+                                        price_end : null,
+                                        page: 1}">Clear filter</button> 
+                                </div>      
+                               
+
+                                <div class="panel style1 arrow-right">
+
+                                        
+
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" href="#price-filter" class="collapsed">Price</a>
+                                        </h4>
+                                        <div id="price-filter" class="panel-collapse collapse">
+                                            <div class="panel-content">
+    
+                                                <div class="form-group">
+                                                    <div >
+                                                            <label>Max Price:</label>
+                                                            <input type="range" min="[[min]]" max="[[max]]" value="[[max]]" ng-model="package.price_end" >
+                                                            <p>Value: <span>[[package.price_end]]</span></p>
+                                                 
+                                                    </div>    
+                                                </div>
+                                                <br>
+                                                <button class="btn-medium icon-check uppercase full-width" ng-click="getPackageData()">search again</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div><!--T-->
                                 
                                 
 
@@ -302,7 +325,7 @@ H<!DOCTYPE html>
                                     </div>
                                 </div><!--T-->
                             </div><!--T-->
-                        </div><!--T-->
+                        </div><!--filter ends-->
 
                         <div class="col-sm-8 col-md-9">
                             
@@ -374,7 +397,8 @@ H<!DOCTYPE html>
                                         <article class="box">
                                             <figure>
                                                 <a href="" class="hover-effect popup-gallery">
-												<img width="270" height="161" alt="" src="https://trektrails.in/wp-content/uploads/2018/02/000102.x24847.jpg"></a>
+                                                   <img   src="{{package.images[0].image_url}}"  style="width:270px;height:161px;" alt="">
+                                                 </a>
                                             </figure>
                                             <div class="details">
                                                 <h4 class="box-title">{{package.title}}<small>4 Days<!--put counter here--></small></h4>
@@ -388,7 +412,7 @@ H<!DOCTYPE html>
                                         </article>
                                     </div>
                                     
-                                       {% endfor %}
+                                    {% endfor %}
                                     </div>
                                     </div>
                                     <!-- </div> -->
@@ -493,13 +517,15 @@ H<!DOCTYPE html>
     
     <!-- parallax -->
     <script type="text/javascript" src="/Partners Screening Form_files/jquery.stellar.min.js.download"></script>
-    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+
     <!-- waypoint -->
     <script type="text/javascript" src="/Partners Screening Form_files/waypoints.min.js.download"></script>
 
     <!-- load page Javascript -->
     <script type="text/javascript" src="/Partners Screening Form_files/theme-scripts.js.download"></script>
     <script type="text/javascript" src="/Partners Screening Form_files/scripts.js.download"></script>
-    
+    <script type="text/javascript" src="/app.js"></script>
+
 
 </body></html>

@@ -1,4 +1,4 @@
-angular.module('app', [])
+angular.module('app', ['angular.filter'])
 .controller('adminController',["$scope", "$http", function($scope,$http){
     $scope.package = {};
     $scope.days=[];
@@ -82,166 +82,171 @@ angular.module('app', [])
 
 
 
+
 /************************ slider jquery section  ************************************** */
-var i=1;
-// var j=1;
-if(window.screen.availWidth >=440){
-  console.log(window.screen.availWidth);
-  $( ".flex-next" ).click(function() {
-    if($scope.package[0].images.length>10){
-     var totalSlides=($scope.package[0].images.length)/10;
-    }
-    else{
-     var totalSlides=1;
-    }
-    var onSlideImage = (slideIndex+1)%10
-    // var lastSlides=totalSlides.toString().split(".")[1]+1;
-    // if(onSlideImage==1){
-    //   if ((totalSlides-1)>i){
-    //     var transform=-800*i;
-    //     document.body.style.setProperty('--txx',transform+'px');
-    //     $(".demo").css("transform","translate3d(var(--txx), 0px, 0px)");
-    //     $scope.currentDiv((i*10)+1);
 
-    //     i++;
-    //     return i;
-    //   } 
-    //   else if(((lastSlides)>j)&&((totalSlides-1)<i)){
-    //     console.log("2nd if");
-    //     var transform=-(80*j+(800*(i-1)));
-    //     console.log("transform",transform);
-    //     document.body.style.setProperty('--txx',transform+'px');
-    //     $(".demo").css("transform","translate3d(var(--txx), 0px, 0px)");
-    //     $scope.currentDiv((i*10)+1);
-  
-    //     j++;
-    //     return j;
-  
-    //   }
-     
-    // }
-    // else if(lastSlides < j) {
-    //   console.log("3 rd if");
-    //   $(".demo").css("transform","translate3d(0px, 0px, 0px)" );
-    //   $scope.currentDiv(1);
-    //   j=1;
-    //   i=1;
-    //   return i;
-    //   return j;
-    // }
-    // else{
-    //   slideIndex++;
-    //   $scope.currentDiv(slideIndex);
-    //   return slideIndex;
-    // }
-    if(onSlideImage==1){
-      if (totalSlides>i){
-        var transform=-800*i;
-        document.body.style.setProperty('--txx',transform+'px');
-        $(".demo").css("transform","translate3d(var(--txx), 0px, 0px)");
-        $scope.currentDiv((i*10)+1);
+          var i=1;
+          // var j=1;
+          if(window.screen.availWidth >=440){
+            console.log(window.screen.availWidth);
+            $( ".flex-next" ).click(function() {
+              if($scope.hotel[0].images.length>10){
+               var totalSlides=($scope.hotel[0].images.length)/10;
+              }
+              else{
+               var totalSlides=1;
+              }
+              var onSlideImage = (slideIndex+1)%10
+              // var lastSlides=totalSlides.toString().split(".")[1]+1;
+              // if(onSlideImage==1){
+              //   if ((totalSlides-1)>i){
+              //     var transform=-800*i;
+              //     document.body.style.setProperty('--txx',transform+'px');
+              //     $(".demo").css("transform","translate3d(var(--txx), 0px, 0px)");
+              //     $scope.currentDiv((i*10)+1);
+          
+              //     i++;
+              //     return i;
+              //   } 
+              //   else if(((lastSlides)>j)&&((totalSlides-1)<i)){
+              //     console.log("2nd if");
+              //     var transform=-(80*j+(800*(i-1)));
+              //     console.log("transform",transform);
+              //     document.body.style.setProperty('--txx',transform+'px');
+              //     $(".demo").css("transform","translate3d(var(--txx), 0px, 0px)");
+              //     $scope.currentDiv((i*10)+1);
+            
+              //     j++;
+              //     return j;
+            
+              //   }
+               
+              // }
+              // else if(lastSlides < j) {
+              //   console.log("3 rd if");
+              //   $(".demo").css("transform","translate3d(0px, 0px, 0px)" );
+              //   $scope.currentDiv(1);
+              //   j=1;
+              //   i=1;
+              //   return i;
+              //   return j;
+              // }
+              // else{
+              //   slideIndex++;
+              //   $scope.currentDiv(slideIndex);
+              //   return slideIndex;
+              // }
+              if(onSlideImage==1){
+                if (totalSlides>i){
+                  var transform=-800*i;
+                  document.body.style.setProperty('--txx',transform+'px');
+                  $(".demo").css("transform","translate3d(var(--txx), 0px, 0px)");
+                  $scope.currentDiv((i*10)+1);
+          
+                  i++;
+                  return i;
+                } 
+              }
+              else if(totalSlides< i) {
+                $(".demo").css("transform","translate3d(0px, 0px, 0px)" );
+                $scope.currentDiv(1);
+                i=1;
+                return i;
+              }
+              else{
+                slideIndex++;
+                $scope.currentDiv(slideIndex);
+                return slideIndex;
+              }
+              
+            });
+            
+            $( ".flex-prev" ).click(function() {
+              var backSlideImage = (slideIndex)%10
+              if (backSlideImage==1){
+                if(1<i){
+                  i--;
+                  var transform =-800*(i-1);
+                  document.body.style.setProperty('--txx',transform+'px');
+                  $(".demo").css("transform","translate3d(var(--txx), 0px, 0px)");
+                  $scope.currentDiv(i*10);
+                  return i;
+                }
+               
+              }else{
+                if(slideIndex>1){
+                  slideIndex--;
+                  $scope.currentDiv(slideIndex);
+                  return slideIndex;
+                }
+              }
+            });
+          
+          }
+          
+          if(window.screen.availWidth <=440){
+          
+            $( ".flex-next" ).click(function() {
+              console.log(window.screen.availWidth);
+              if($scope.hotel[0].images.length>3){
+                var totalSlides=($scope.hotel[0].images.length)/3;
+               }
+               else{
+                var totalSlides=1;
+               }
+              var onSlideImage = (slideIndex+1)%3
+          
+              if(onSlideImage==1){
+                if (totalSlides>i){
+                  var transform=-240*i;
+                  document.body.style.setProperty('--stx',transform+'px');
+                  $(".demo").css("transform","translate3d(var(--stx), 0px, 0px)");
+                  $scope.currentDiv((i*3)+1);
+          
+                  i++;
+                  return i;
+                } 
+              }
+              else if(totalSlides< i) {
+                $(".demo").css("transform","translate3d(0px, 0px, 0px)" );
+                $scope.currentDiv(1);
+                i=1;
+                return i;
+              }
+              else{
+                slideIndex++;
+                $scope.currentDiv(slideIndex);
+                return slideIndex;
+              }
+            });
+            
+            $( ".flex-prev" ).click(function() {
+          
+              var backSlideImage = (slideIndex)%3
+              if (backSlideImage==1){
+                if(1<i){
+                  i--;
+                  var transform =-240*(i-1);
+                  document.body.style.setProperty('--stx',transform+'px');
+                  $(".demo").css("transform","translate3d(var(--stx), 0px, 0px)");
+                  $scope.currentDiv(i*3);
+                  return i;
+                }
+               
+              }else{
+                if(slideIndex>1){
+                  slideIndex--;
+                  $scope.currentDiv(slideIndex);
+                  return slideIndex;
+                }
+              }
+            });
+          
+          }
+          /************************************************************************************************/
 
-        i++;
-        return i;
-      } 
-    }
-    else if(totalSlides< i) {
-      $(".demo").css("transform","translate3d(0px, 0px, 0px)" );
-      $scope.currentDiv(1);
-      i=1;
-      return i;
-    }
-    else{
-      slideIndex++;
-      $scope.currentDiv(slideIndex);
-      return slideIndex;
-    }
-    
-  });
-  
-  $( ".flex-prev" ).click(function() {
-    var backSlideImage = (slideIndex)%10
-    if (backSlideImage==1){
-      if(1<i){
-        i--;
-        var transform =-800*(i-1);
-        document.body.style.setProperty('--txx',transform+'px');
-        $(".demo").css("transform","translate3d(var(--txx), 0px, 0px)");
-        $scope.currentDiv(i*10);
-        return i;
-      }
-     
-    }else{
-      if(slideIndex>1){
-        slideIndex--;
-        $scope.currentDiv(slideIndex);
-        return slideIndex;
-      }
-    }
-  });
 
-}
 
-if(window.screen.availWidth <=440){
-
-  $( ".flex-next" ).click(function() {
-    console.log(window.screen.availWidth);
-    if($scope.package[0].images.length>3){
-      var totalSlides=($scope.package[0].images.length)/3;
-     }
-     else{
-      var totalSlides=1;
-     }
-    var onSlideImage = (slideIndex+1)%3
-
-    if(onSlideImage==1){
-      if (totalSlides>i){
-        var transform=-240*i;
-        document.body.style.setProperty('--stx',transform+'px');
-        $(".demo").css("transform","translate3d(var(--stx), 0px, 0px)");
-        $scope.currentDiv((i*3)+1);
-
-        i++;
-        return i;
-      } 
-    }
-    else if(totalSlides< i) {
-      $(".demo").css("transform","translate3d(0px, 0px, 0px)" );
-      $scope.currentDiv(1);
-      i=1;
-      return i;
-    }
-    else{
-      slideIndex++;
-      $scope.currentDiv(slideIndex);
-      return slideIndex;
-    }
-  });
-  
-  $( ".flex-prev" ).click(function() {
-
-    var backSlideImage = (slideIndex)%3
-    if (backSlideImage==1){
-      if(1<i){
-        i--;
-        var transform =-240*(i-1);
-        document.body.style.setProperty('--stx',transform+'px');
-        $(".demo").css("transform","translate3d(var(--stx), 0px, 0px)");
-        $scope.currentDiv(i*3);
-        return i;
-      }
-     
-    }else{
-      if(slideIndex>1){
-        slideIndex--;
-        $scope.currentDiv(slideIndex);
-        return slideIndex;
-      }
-    }
-  });
-
-}
-/************************************************************************************************/
 
 
 
@@ -302,4 +307,53 @@ if(window.screen.availWidth <=440){
   
   
 
+}])
+
+.controller('packagelistController',["$scope", "$http", function($scope, $http) {
+
+  $scope.package = {
+    rating : null ,
+    star :  null,
+    price_start : null,
+    price_end : null,
+    page: 1
+  };
+  $scope.min= 0;
+  $scope.max= 200000;
+  var api_url='http://127.0.0.1:5000';
+
+
+
+
+
+
+
+$scope.getPackageData = function(cb){
+  console.log("filter finction ")
+
+  if(!cb) $scope.package.page = 1;
+
+  let searchURL = '127.0.0.1:5000/api/v1/package'+document.location.search
+  console.log("searchurl",searchURL);
+ 
+  
+  Object.keys($scope.package).forEach(function(param){
+    console.log($scope.package[param]);
+    if($scope.package[param])
+    searchURL += `&${param}=${$scope.package[param]}`;
+  });
+
+  $http({
+    method: 'GET',
+    url: searchURL
+  }).then(function(res){
+
+    if(cb){
+      cb(res);
+    }else{
+      $scope.packageData = res.response.result.package; 
+      console.log("$scope.packageData",$scope.packageData);
+    }
+  })
+}
 }]);
