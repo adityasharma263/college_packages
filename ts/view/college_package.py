@@ -1,5 +1,5 @@
 from ts.model.college_packages import College, Package, Day, Student, Course, Amenity, Image, Availability, CollegeSelectedPackage
-from ts import app
+from ts import app, db
 from sqlalchemy import or_
 from flask import jsonify, request, session
 from ts.schema.college_package import CollegeSchema, PackageSchema, DaySchema, StudentSchema, CourseSchema, AmenitySchema, CollegeSelectedPackageSchema
@@ -11,9 +11,19 @@ def college_api():
         args = request.args.to_dict()
         args.pop('page', None)
         args.pop('per_page', None)
+        package_id = request.args.get('package_id')
+        args.pop('package_id', None)
         page = int(request.args.get('page', 1))
         per_page = int(request.args.get('per_page', 10))
-        data = College.query.filter_by(**args).offset((int(page) - 1) * int(per_page)).limit(int(per_page)).all()
+        q = db.session.query(College).outerjoin(College.packages)
+        for key in args:
+            if key in College.__dict__:
+                q = q.filter(getattr(College, key) == args[key])
+            elif key in Package.__dict__:
+                q = q.filter(getattr(Package, key) == args[key])
+        if package_id:
+            q = q.filter(Package.id == package_id)
+        data = q.offset((int(page) - 1) * int(per_page)).limit(int(per_page)).all()
         result = CollegeSchema(many=True).dump(data)
         return jsonify({'result': {'college': result.data}, 'message': "Success", 'error': False})
     else:
