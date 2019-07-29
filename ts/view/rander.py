@@ -2,8 +2,9 @@
 __author__ = 'aditya'
 
 from ts import app
-from flask import render_template, request, make_response, jsonify, abort, redirect
+from flask import render_template, request, make_response, jsonify, abort, redirect, session
 import requests
+app.secret_key = "any random string"
 
 
 @app.route('/admin/college', methods=['GET', 'POST'])
@@ -24,19 +25,23 @@ def home():
 @app.route('/college/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
-        post_data = request.args.to_dict()
-        print(post_data)
         return render_template('partner-login.html')
     elif request.method == 'POST':
         post_data = request.form.to_dict()
-        print(post_data, "fgrtfhf")
+        session['username'] = post_data['username']
         college_url = 'http://127.0.0.1:5000/api/v1/college'
         data = requests.get(url=college_url, params=post_data).json()
         if len(data['result']['college']) > 0:
             data = data["result"]["college"][0]
         else:
             data = {}
-        return render_template('partner-dashboard.html', data=data)
+        resp = make_response(render_template('partner-dashboard.html', data=data))
+        resp.set_cookie('userID', post_data['username'])
+        # session = requests.Session()
+        # print(session.cookies.get_dict())
+        # response = session.get('http://127.0.0.1:5000/college/login')
+        # print(response.cookies.get_dict())
+        return resp
 
 
 
@@ -67,6 +72,7 @@ def student():
 
 @app.route('/package/list', methods=['GET'])
 def packagelist():
+    print(session['username'], "cvfgfdgd")
     team_url = 'http://127.0.0.1:5000/api/v1/package'
     data = requests.get(url=team_url).json()['result']['package']
     return render_template('all-packages.html', data=data)
