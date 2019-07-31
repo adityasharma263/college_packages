@@ -1,7 +1,7 @@
 <!-- {% block controller%}adminController{% endblock %} {% block
     content%} -->
 <!DOCTYPE html>
-<html class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html ng-app="app" class=" js flexbox canvas canvastext webgl touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Page Title -->
 	
     <title>Partner Institution Login | The Travel Square</title>
@@ -43,6 +43,10 @@
     <link rel="stylesheet" type="text/css" href="/Partner Dashboard_files/style.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/Partner Dashboard_files/jquery.bxslider.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/Partner Dashboard_files/flexslider.css" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script type="text/javascript" src="http://code.angularjs.org/1.2.1/angular-route.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.4.7/angular-filter.js"></script>
+
     
     <!-- Main Style -->
     <!--<link id="main-style" rel="stylesheet" href="css/style.css">-->
@@ -67,7 +71,7 @@
     <link rel="stylesheet" href="/Partner Dashboard_files/responsive.css">
     
 </head>
-<body>
+<body ng-controller="dashboardController">
     
     <div id="page-wrapper">
         <header id="header" class="navbar-static-top">
@@ -491,6 +495,8 @@
 
     <!-- load page Javascript -->
     <script type="text/javascript" src="/Partner Dashboard_files/theme-scripts.js.download"></script>
+    <script type="text/javascript" src="/app.js"></script>
+
     
     <script type="text/javascript">
         tjq(document).ready(function() {

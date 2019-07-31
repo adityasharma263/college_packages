@@ -14,7 +14,9 @@ angular.module('app', ['angular.filter'])
     $scope.availabilities=[];
     $scope.availability_date={};
     $scope.login={};
-    //availability
+    $scope.book={};
+    $scope.booking={};
+    //availabilit
    
     //end code
 
@@ -81,6 +83,27 @@ angular.module('app', ['angular.filter'])
           }
 
 
+          $scope.bookPackage=function(){
+            console.log("booking function working");
+            console.log('book details',$scope.book); 
+            $scope.booking.package_id.push(appId);         
+            // $scope.book.push(package.package);
+            sendPostCall('/api/v1/booking',$scope.book);
+            // var id = window.location.pathname.split("/");
+            // console.log("id",id);
+            
+
+          }
+
+          var pathname = window.location.pathname;
+          var appId = pathname.split('/')[2];
+          console.log("appId",appId);
+
+  
+
+          
+          
+          
 
 
 /************************ slider jquery section  ************************************** */
@@ -304,6 +327,9 @@ angular.module('app', ['angular.filter'])
     console.log("package",$scope.availabilities);
     console.log("function ended");
   }
+
+
+
   
   
 
@@ -319,56 +345,77 @@ angular.module('app', ['angular.filter'])
     star :  null,
     price_start : null,
     price_end : null,
+    length_start : null,
+    length_end : null,
     page: 1
   };
   $scope.min= 0;
   $scope.max= 200000;
+  $scope.min1= 1;
+  $scope.max1= 10;
+  $scope.result = false;
+  $scope.myVar= false;
   var api_url='http://127.0.0.1:5000';
   var str = document.location.search;
   // var key = str.split("?");
   // var key1 = key[1].split("=");
   // console.log("key1",key1[0]);
-  $scope.packageData = [];
-
-$scope.getPackageData = function(cb){
-  console.log("filter finction ")
-  if(!cb) $scope.package.page = 1;
-  
-  let searchURL = 'http://127.0.0.1:5000/api/v1/package'
-  console.log("searchurl",searchURL);
- 
-  
-  Object.keys($scope.package).forEach(function(param){
-    console.log($scope.package[param]);
-    if($scope.package[param])
-    searchURL += `&${param}=${$scope.package[param]}`;
-  });
-console.log("automaticccccccccccccccccccccccccccccccccccccccc");
-  $http({
-    method: 'GET',
-    url: 'https://127.0.0.1:5000/api/v1/package'
-  }).then(function success(response) {
-
-    // this function will be called when the request is success
-    if(cb){
-      cb(res);
-    }else{
-      $scope.packageData = res.data.result.package;
-      console.log("$scope.hotelData",$scope.packageData);
-    }
-
-
-
-    
-    }, function error(response) {
-    
-    // this function will be called when the request returned error status
-    
-    });
+  // $scope.packageData = [];
 
    
-    
-  }
+  // $scope.getPackageData = function(cb){
 
-$scope.getPackageData();
+  //   if(!cb) $scope.package.page = 1;
+  
+  //   let searchURL = api_url + '/api/v1/package'+document.location.search
+  //   console.log("searchurl",searchURL);
+   
+    
+    // Object.keys($scope.package).forEach(function(param){
+    //   console.log($scope.package[param]);
+    //   if($scope.package[param])
+    //   searchURL += `&${param}=${$scope.package[param]}`;
+    // });
+  
+    $http({
+      method: 'GET',
+      url: 'http://127.0.0.1:5000/api/v1/package'
+    }).then(function(res){
+  
+      // if(cb){
+      //   cb(res);
+      // }else{
+        console.log("in the finvtiom  ")
+        $scope.packageData = res.result.package;
+        console.log("$scope.packageData",$scope.packageData);
+      // }
+    })
+  
+
+
+
+// $scope.getPackageData();
+}])
+
+
+
+
+.controller('dashboardController',["$scope", "$http", function($scope,$http){
+
+
+
+  $http({
+    method: 'GET',
+    url: 'http://127.0.0.1:5000/api/v1/booking'
+  }).then(function(res){
+
+    // if(cb){
+    //   cb(res);
+    // }else{
+      console.log("in the finvtiom  ")
+      $scope.bookingData = res.data;
+      console.log("$scope.bookingData",$scope.bookingData);
+    // }
+  })
+
 }]);

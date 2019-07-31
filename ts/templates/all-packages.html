@@ -96,7 +96,7 @@
                                 <a href="/" >Home</a>
                             </li>
                             <li class="menu-item-has-children">
-                                <a href="/package/list" >All Packages</a>
+                                <a href="/package/list" >Allpackages</a>
                             </li>
                             <li class="menu-item-has-children">
                                 <a href="travel-partners.html">Our Travel Partners</a>
@@ -221,7 +221,7 @@
         <div class="page-title-container">
             <div class="container">
                 <div class="page-title pull-left">
-                    <h2 class="entry-title">All Educational Packages , Trip & Student Tours</h2>
+                    <h2 class="entry-title">All Educationalpackages , Trip & Student Tours</h2>
                 </div>
                 <ul class="breadcrumbs pull-right">
                     <li><a href="">HOME</a></li>
@@ -240,11 +240,13 @@
                                         star :  null,
                                         price_start : null,
                                         price_end : null,
+                                        length_start : null,
+                                        length_end : null,
                                         page: 1}">Clear filter</button> 
                                 </div>      
                                
 
-                                <div class="panel style1 arrow-right">
+                                <!-- <div class="panel style1 arrow-right">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" href="#price-filter" class="collapsed">Price</a>
                                         </h4>
@@ -264,40 +266,51 @@
                                             </div>
                                         </div>
                                     </div>
-                                
+
+                                    <div class="panel style1 arrow-right">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#length-filter" class="collapsed">Tour Length</a>
+                                            </h4>
+                                            <div id="length-filter" class="panel-collapse collapse">
+                                                <div class="panel-content">
+        
+                                                    <div class="form-group">
+                                                        <div >
+                                                                <label>Max Length:</label>
+                                                                <input type="range" min="[[min1]]" max="[[max1]]" value="[[max1]]" ng-model="package.length_end" >
+                                                                <p>Value: <span>[[package.length_end]]</span></p>
+                                                     
+                                                        </div>    
+                                                    </div>
+                                                    <br>
+                                                    <button class="btn-medium icon-check uppercase full-width" ng-click="getPackageData()">search again</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                 -->
                                 
 
-                                <div class="panel style1 arrow-right"><!--T-->
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#cruise-length-filter" class="collapsed">Tour Length</a>
-                                    </h4>
-                                    <div id="cruise-length-filter" class="panel-collapse collapse">
-                                        <div class="panel-content">
-                                            <div id="cruise-length-range" class="slider-color-yellow ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 83.3333%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#" style="left: 83.3333%;"></a></div>
-                                            <br>
-                                            <span class="min-cruise-length pull-left">0</span>
-                                            <span class="max-cruise-length pull-right">10 NIGHTS</span>
-                                            <div class="clearer"></div>
-                                        </div><!-- end content -->
-                                    </div>
-                                </div><!--T-->
+                                
                                 
                                 <div class="panel style1 arrow-right"><!--T-->
                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#cruise-line-filter" class="collapsed">Tour Type</a>
+                                        <a data-toggle="collapse" href="#cruise-line-filter" class="collapsed">Tour Type</a>
                                     </h4>
                                     <div id="cruise-line-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
                                             <ul class="check-square filters-option">
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Fashion Tour<small>(722)</small></a></li>
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Factory Visit<small>(982)</small></a></li>
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">AMT / PMT Educational Tour<small>(127)</small></a></li>
-                                                <li class="active"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Confrences<small>(222)</small></a></li>
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Architectural Tours<small>(158)</small></a></li>
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Aviation Tours<small>(439)</small></a></li>
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Welfare Trips<small>(52)</small></a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_category"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Fashion Tour</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_category"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Factory Visit</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_category"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">AMT / PMT Educational Tour</a></li>
+                                                <li class="active" ng-click="getPackagesData()" ng-model="package.tour_category"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Confrences</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_category"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Architectural Tours</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_category"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Aviation Tour</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_category"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Welfare Trips</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_category"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Industrial Visit</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_category"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">College Trips</a></li>
+
+
                                             </ul>
-                                            <a class="button btn-mini">MORE</a>
                                         </div>
                                     </div>
                                 </div><!--T-->
@@ -309,15 +322,15 @@
                                     <div id="cruise-preference-filter" class="panel-collapse collapse">
                                         <div class="panel-content">
                                             <ul class="check-square filters-option">
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Marketing</a></li>
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Technical</a></li>
-                                                <li class="active"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Fashion Industry</a></li>
-                                                <li class="active"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Mass Com.</a></li>
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Digital Marketing</a></li>
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Adventure</a></li>
-                                                <li><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Luxury Trips</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_domain"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Marketing</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_domain"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Technical</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_domain"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Fashion Industry</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_domain"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Mass Com.</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_domain"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Digital Marketing</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_domain"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Adventure</a></li>
+                                                <li ng-click="getPackagesData()" ng-model="package.tour_domain"><a href="http://www.soaptheme.net/html/travelo/cruise-grid-view.html#">Luxury Trips</a></li>
                                             </ul>
-                                            <a class="button btn-mini">MORE</a>
+                                            
                                         </div>
                                     </div>
                                 </div><!--T-->
@@ -328,86 +341,30 @@
                             
                             <div class="cruise-list image-box style3 cruise listing-style1">
                                 <div class="row">
-                                    <!-- <div class="col-sm-6 col-md-4">
-                                        <article class="box">
-                                            <figure>
-                                                <a href="" class="hover-effect popup-gallery"><img width="270" height="161" alt="" src="/images/bisleri-factory-tour.jpg"></a>
-                                            </figure>
-                                            <div class="details">
-                                                <h4 class="box-title">Bisleri Factory , Day Trip<small>1 Day</small></h4>
-                                              
-                                                
-                                                <p class="description fourty-space">Factory Visit Tour <span class="skin-color"></p>
-                                                <div class="action">
-                                                    <a class="button btn-small full-width" href="detail.html">VIEW DETAILS</a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div> -->
-									<!-- <div class="col-sm-6 col-md-4">
-                                        <article class="box">
-                                            <figure>
-												<a href="" class="hover-effect popup-gallery"><img width="270" height="161" alt="" src="https://trektrails.in/wp-content/uploads/2018/02/000102.x24847.jpg""></a>
-                                            </figure>
-                                            <div class="details">
-                                                <h4 class="box-title">Yamaha Industry Visit<small>1 Day</small></h4>
-                                              
-                                                
-                                                <p class="description fourty-space">Factory Visit Tour <span class="skin-color"></p>
-                                                <div class="action">
-                                                    <a class="button btn-small full-width" href="package-detail.html">VIEW DETAILS</a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div> -->
-									<!-- <div class="col-sm-6 col-md-4">
-                                        <article class="box">
-                                            <figure>
-                                                <a href="" class="hover-effect popup-gallery">
-												<img width="270" height="161" alt="" src="https://trektrails.in/wp-content/uploads/2018/02/000102.x24847.jpg"></a>
-                                            </figure>
-                                            <div class="details">
-                                                <h4 class="box-title">Solan Valley Tour<small>4 Days</small></h4>
-                                              
-                                                
-                                                <p class="description fourty-space">Destination Trip <span class="skin-color"></p>
-                                                <div class="action">
-                                                    <a class="button btn-small full-width" href="detail.html">VIEW DETAILS</a>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </div> -->
+                                   
+                                 
                                     
-
-
-                                    <!--code for listing the packages -->
-                                    <!-- <div class="col-sm-8 col-md-9"> -->
-                                    <!-- <div class="cruise-list image-box style3 cruise listing-style1">
-                                    <div class="row"> -->
-
-                                            {% for package in data %}  
-                                    
-                                    <div class="col-sm-6 col-md-4">
+                                    <div class="col-sm-6 col-md-4" >
                                      
 
-                                        <article class="box">
+                                        <article class="box" ng-repeat="package in Data">
                                             <figure>
                                                 <a href="" class="hover-effect popup-gallery">
-                                                   <img   src="{{package.images[0].image_url}}"  style="width:270px;height:161px;" alt="">
+                                                   <img   src=""  style="width:270px;height:161px;" alt="">
                                                  </a>
                                             </figure>
                                             <div class="details">
-                                                <h4 class="box-title">{{package.title}}<small>{{package.trip_duration}} days<!--put counter here--></small></h4>
+                                                <h4 class="box-title">[[package.title]]<small>[[package.trip_duration]] days<!--put counter here--></small></h4>
                                               
                                                 
-                                                <p class="description fourty-space">{{package.tour_category}}<span class="skin-color"></p>
+                                                <p class="description fourty-space">[[package.tour_category]]<span class="skin-color"></p>
                                                 <div class="action">
-                                                    <a class="button btn-small full-width" href="/package/{{package.id}}">VIEW DETAILS</a>
+                                                    <a class="button btn-small full-width" href="/package/[[package.id]]">VIEW DETAILS</a>
                                                 </div>
                                             </div>
                                         </article>
                                     </div>
-                                    {% endfor %}
+                                    
                                     
                                     
                                     </div>
@@ -416,7 +373,7 @@
                                    
 
 
-                                    <!--code end for listing the packages-->
+                                    <!--code end for listing thepackages-->
                                 </div>
                             </div>
                         </div>
@@ -470,7 +427,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
                             <h2>About Us</h2>
-                            <p>The Travel Square is a Network of 10000+ Travel Suppliers , DMC & Hotel Chains Inspiring the World to Travel In Style With Luxury at Affordabe Pricing . </p>
+                            <p>The Travel Square is a Network of 10000+ Travel Suppliers , DMC & package Chains Inspiring the World to Travel In Style With Luxury at Affordabe Pricing . </p>
                             <br>
                             <ul class="social-icons clearfix">
                                 <li class="twitter"><a title="Join Us on Twitter" href="https://twitter.com/travelsquare_" data-toggle="tooltip"  Target="_blank" data-original-title="twitter"><i class="soap-icon-twitter"></i></a></li>
@@ -513,7 +470,6 @@
     
     <!-- parallax -->
     <script type="text/javascript" src="/Partners Screening Form_files/jquery.stellar.min.js.download"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
 
     <!-- waypoint -->
     <script type="text/javascript" src="/Partners Screening Form_files/waypoints.min.js.download"></script>
@@ -521,6 +477,8 @@
     <!-- load page Javascript -->
     <script type="text/javascript" src="/Partners Screening Form_files/theme-scripts.js.download"></script>
     <script type="text/javascript" src="/Partners Screening Form_files/scripts.js.download"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+
     <script type="text/javascript" src="/app.js"></script>
 
 

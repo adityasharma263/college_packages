@@ -65,3 +65,59 @@ width="320" height="81"
       console.log("$scope.packageData",);
       $scope.packageData = result.data.package; 
       console.log("$scope.packageData",$scope.packageData);
+
+
+
+
+
+
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+              <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+                  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" type="text/javascript"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="cruise-length-range" class="slider-color-yellow ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 83.3333%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="" style="left: 83.3333%;"></a></div>
+                                            <br>
+                                            <span class="min-cruise-length pull-left">0</span>
+                                            <span class="max-cruise-length pull-right">10 NIGHTS</span>
+                                            <div class="clearer"></div>
+                                        </div><!-- end content -->
+
+
+
+
+
+
+
+
+
+                                          <li  id="tourtype1"  href="#tourtype1" name="tour_category" ng-click="getHotelsData()" ng-model="hotel.tour_category">Fashion Tour</li>
+                                                <li  id="tourtype2" name="tour_category" ng-click="getHotelsData()" ng-model="hotel.tour_category">Factory Visit</li>
+                                                <li id="tourtype3" name="tour_category" ng-click="getHotelsData()" ng-model="hotel.tour_category">AMT / PMT Educational Tour</li>
+                                                <li class="active" id="tourtype4" name="tour_category" ng-click="getHotelsData()" ng-model="hotel.tour_category">Confrences</li>
+                                                <li id="tourtype5" name="tour_category" ng-click="getHotelsData()" ng-model="hotel.tour_category">Welfare Trips</li>
+                                                <li id="tourtype5" name="tour_category" ng-click="getHotelsData()" ng-model="hotel.tour_category">Industrial Visit</li>
+                                                <li id="tourtype5" name="tour_category" ng-click="getHotelsData()" ng-model="hotel.tour_category">College Trip</li>
+
+
+
+
+
+
+
+ <label class="month">OCT</label>
+                                            <label class="date">13</label>
+                                            <label class="day">SAT</label>

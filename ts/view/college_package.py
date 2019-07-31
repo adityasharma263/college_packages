@@ -170,12 +170,14 @@ def booking_api():
         result = CollegeSelectedPackageSchema(many=True).dump(data)
         return jsonify({'result': {'bookings': result.data}, 'message': "Success", 'error': False})
     else:
+        print("aaaaaaaa")
         if 'post_data' in session:
             post_data = session["post_data"]
             print(post_data)
             college_id = College.query.filter_by(username=post_data['username']).first().id
             booking_post_data = request.json
             booking_post_data['college_id'] = college_id
+            print(booking_post_data,"data")
             post = CollegeSelectedPackage(**booking_post_data)
             post.save()
             result = CollegeSelectedPackageSchema().dump(post)

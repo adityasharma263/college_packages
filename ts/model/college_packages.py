@@ -146,7 +146,7 @@ class CollegeSelectedPackage(Base):
     booking_date = db.Column(db.DateTime, nullable=True)
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)   
 
     def __repr__(self):
         return '<college_id %r>' % self.college_id
